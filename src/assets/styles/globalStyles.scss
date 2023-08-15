@@ -1,0 +1,63 @@
+@import '_fonts';
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+    box-sizing: border-box;
+
+    color: black;
+    font-family: 'Onest', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    &::before,
+    &::after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a,
+a:link,
+a:visited,
+a:hover {
+    text-decoration: none;
+}
+
+ul,
+ul li {
+    list-style: none;
+}
+
+button,
+input {
+    box-shadow: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}

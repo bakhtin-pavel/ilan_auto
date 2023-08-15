@@ -1,0 +1,27 @@
+.dropdown {
+    position: relative;
+}
+
+%menu {
+
+    position: absolute;
+    top: 100%;
+    left: -10px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 1s linear;
+}
+
+.noVisible {
+    @extend %menu;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.visible {
+    @extend %menu;
+    visibility: visible;
+    opacity: 1;
+}

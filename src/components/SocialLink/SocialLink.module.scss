@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    gap: 8px;
+
+    a {
+        height: 24px;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+.whatsapp:hover {
+    path {
+        fill: #43D854;
+    }
+}
+
+.telegram:hover {
+    path {
+        fill: #08C;
+    }
+}
+
+.vk:hover {
+    path {
+        fill: #07F;
+    }
+}
