@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ilan_auto/static/css/main.c14805bf.css",
+    "main.css": "/ilan_auto/static/css/main.79ff96ce.css",
     "main.js": "/ilan_auto/static/js/main.dd20eed8.js",
     "static/media/main_top_img.png": "/ilan_auto/static/media/main_top_img.4ee0fbcebe678c4870ab.png",
     "static/media/Onest Bold.ttf": "/ilan_auto/static/media/Onest Bold.78bc2eb3740882c9dd4a.ttf",
@@ -31,11 +31,11 @@
     "index.html": "/ilan_auto/index.html",
     "static/media/mobile_menu_close.svg": "/ilan_auto/static/media/mobile_menu_close.55701069d543c5453b37.svg",
     "static/media/mobile_menu.svg": "/ilan_auto/static/media/mobile_menu.a36f9e22d47dcb8b604b.svg",
-    "main.c14805bf.css.map": "/ilan_auto/static/css/main.c14805bf.css.map",
+    "main.79ff96ce.css.map": "/ilan_auto/static/css/main.79ff96ce.css.map",
     "main.dd20eed8.js.map": "/ilan_auto/static/js/main.dd20eed8.js.map"
   },
   "entrypoints": [
-    "static/css/main.c14805bf.css",
+    "static/css/main.79ff96ce.css",
     "static/js/main.dd20eed8.js"
   ]
 }
