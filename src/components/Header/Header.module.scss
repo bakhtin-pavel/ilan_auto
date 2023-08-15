@@ -42,12 +42,14 @@
 %mobileMenuBase {
     position: fixed;
     top: 80px;
+    bottom: 0;
+    z-index: 10;
 
-    padding: 40px 40px;
+    padding: 40px 50px;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(40px);
-    border-left: 1px solid #E41F1C;
-    border-bottom: 1px solid #E41F1C;
+    box-shadow: 0px 0px 20px;
+    // border-left: 1px solid #E41F1C;
 
     transition: all 500ms ease-out;
 }
@@ -90,7 +92,7 @@
 
     %mobileMenuBase {
         top: 48px;
-        padding: 20px 16px;
+        padding: 20px 40px;
     }
 
 }

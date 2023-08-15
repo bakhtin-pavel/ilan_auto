@@ -21,7 +21,7 @@ const Navbar = () => {
             >
                 Каталог
             </NavLink>
-            <a href='#carOrder' className={activeAnchor === 'carOrder' ? styles.activeLink : styles.link}>Заказ авто</a>
+            <a href='#carOrder' onClick={() => navigate('/')} className={activeAnchor === 'carOrder' ? styles.activeLink : styles.link}>Заказ авто</a>
             <a href='#clientReviews' onClick={() => navigate('/')} className={activeAnchor === 'clientReviews' ? styles.activeLink : styles.link}>Отзывы</a>
             <a href='#faq' onClick={() => navigate('/')} className={activeAnchor === 'faq' ? styles.activeLink : styles.link}>FAQ</a>
             <a href='#team' onClick={() => navigate('/')} className={activeAnchor === 'team' ? styles.activeLink : styles.link}>Команда</a>

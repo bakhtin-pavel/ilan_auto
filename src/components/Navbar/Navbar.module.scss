@@ -52,11 +52,23 @@
 
     .navigatoin {
         flex-direction: column;
-        gap: 16px;
     }
 
     %baseLink {
-        font-size: 16px;
+        &:active {
+            transform: translateY(-4px);
+            color: #fff;
+        }
+    }
+
+}
+
+
+
+@media (max-width: 767px) {
+
+    %baseLink {
+        font-size: 18px;
         line-height: normal;
     }
 

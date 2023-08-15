@@ -14,24 +14,24 @@ const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <div className={styles.container}>
-            <Logo styles={styles.logo} />
-            {size.innerWidth > 1024
-                ? <>
-                    <Navbar />
-                    <SocialLink />
-                </>
-                : <>
-                    <button
+        <>
+            <div className={styles.container}>
+                <Logo styles={styles.logo} />
+                {size.innerWidth > 1024
+                    ? <>
+                        <Navbar />
+                        <SocialLink />
+                    </>
+                    : <button
                         className={menuOpen ? styles.menuButtonClose : styles.menuButton}
                         onClick={() => setMenuOpen(!menuOpen)}
                     ></button>
-                    <div className={menuOpen ? styles.mobileMenuOpen : styles.mobileMenu}>
-                        <Navbar />
-                    </div>
-                </>
-            }
-        </div>
+                }
+            </div>
+            <div className={menuOpen ? styles.mobileMenuOpen : styles.mobileMenu}>
+                <Navbar />
+            </div>
+        </>
     )
 }
 
