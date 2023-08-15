@@ -30,6 +30,7 @@
     height: 22px;
     background: url(../../assets/icons/mobile_menu.svg);
     background-size: cover;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .menuButtonClose {
@@ -37,6 +38,7 @@
     height: 22px;
     background: url(../../assets/icons/mobile_menu_close.svg);
     background-size: cover;
+    -webkit-tap-highlight-color: transparent;
 }
 
 %mobileMenuBase {
@@ -49,7 +51,6 @@
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(40px);
     box-shadow: 0px 0px 20px;
-    // border-left: 1px solid #E41F1C;
 
     transition: all 500ms ease-out;
 }
@@ -78,6 +79,7 @@
     .logo {
         width: 72px;
         height: 28px;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .menuButton {

@@ -55,6 +55,8 @@
     }
 
     %baseLink {
+        -webkit-tap-highlight-color: transparent;
+
         &:active {
             transform: translateY(-4px);
             color: #fff;
