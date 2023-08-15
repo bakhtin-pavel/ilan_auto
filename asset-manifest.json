@@ -1,16 +1,41 @@
 {
   "files": {
-    "main.css": "/ilan_auto/static/css/main.073c9b0a.css",
-    "main.js": "/ilan_auto/static/js/main.38021ade.js",
-    "static/js/787.3255a535.chunk.js": "/ilan_auto/static/js/787.3255a535.chunk.js",
-    "static/media/logo.svg": "/ilan_auto/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/ilan_auto/static/css/main.e41654e9.css",
+    "main.js": "/ilan_auto/static/js/main.84a0c30d.js",
+    "static/media/main_top_img.png": "/ilan_auto/static/media/main_top_img.4ee0fbcebe678c4870ab.png",
+    "static/media/Onest Bold.ttf": "/ilan_auto/static/media/Onest Bold.78bc2eb3740882c9dd4a.ttf",
+    "static/media/Onest Black.ttf": "/ilan_auto/static/media/Onest Black.434f83db06c35b79c801.ttf",
+    "static/media/Onest Light.ttf": "/ilan_auto/static/media/Onest Light.db2bc4f3aafcbc7dd85c.ttf",
+    "static/media/Onest Regular.ttf": "/ilan_auto/static/media/Onest Regular.46cc1e351ea3513f747d.ttf",
+    "static/media/Onest Thin.ttf": "/ilan_auto/static/media/Onest Thin.70c997b270e98d2937c6.ttf",
+    "static/media/Onest ExtraBold.ttf": "/ilan_auto/static/media/Onest ExtraBold.a6abe58366b708b62562.ttf",
+    "static/media/Onest Medium.ttf": "/ilan_auto/static/media/Onest Medium.f50deeff27f5e1d6c364.ttf",
+    "static/media/Onest Medium.woff": "/ilan_auto/static/media/Onest Medium.0e6ee82552d1b0e98da1.woff",
+    "static/media/Onest ExtraBold.woff": "/ilan_auto/static/media/Onest ExtraBold.515ffb787dc75e6a200c.woff",
+    "static/media/Onest Bold.woff": "/ilan_auto/static/media/Onest Bold.53bcb8fdf1afbbfda6c2.woff",
+    "static/media/Onest Black.woff": "/ilan_auto/static/media/Onest Black.3b53c1f8b3fc98f8e0c3.woff",
+    "static/media/Onest Regular.woff": "/ilan_auto/static/media/Onest Regular.d1c0cc4c625b92c921d4.woff",
+    "static/media/Onest Light.woff": "/ilan_auto/static/media/Onest Light.5f5e639ad670b17acfc5.woff",
+    "static/media/Onest Thin.woff": "/ilan_auto/static/media/Onest Thin.7a6f93a323b7cb50a890.woff",
+    "static/media/Onest Medium.woff2": "/ilan_auto/static/media/Onest Medium.0c63b96847c78d5cea0f.woff2",
+    "static/media/Onest Bold.woff2": "/ilan_auto/static/media/Onest Bold.d044a768a738ba7c7b45.woff2",
+    "static/media/Onest ExtraBold.woff2": "/ilan_auto/static/media/Onest ExtraBold.091e95780b155b5d9e24.woff2",
+    "static/media/Onest Black.woff2": "/ilan_auto/static/media/Onest Black.7bf03a55882be82a9810.woff2",
+    "static/media/Onest Regular.woff2": "/ilan_auto/static/media/Onest Regular.66693c2d919755fcad52.woff2",
+    "static/media/Onest Light.woff2": "/ilan_auto/static/media/Onest Light.5a869c92dd689b1c7002.woff2",
+    "static/media/Onest Thin.woff2": "/ilan_auto/static/media/Onest Thin.622fd5801d67237ed0fc.woff2",
+    "static/media/logo.svg": "/ilan_auto/static/media/logo.dd7fbb1bacaad047665e480b015e4fa8.svg",
+    "static/media/whatsapp.svg": "/ilan_auto/static/media/whatsapp.afbcbe0e1b5af68e6e99764aad25d66d.svg",
+    "static/media/vk.svg": "/ilan_auto/static/media/vk.84b384977c49493b4589c05d864a2e1f.svg",
+    "static/media/telegram.svg": "/ilan_auto/static/media/telegram.d0114d557deee5f1652ea41e576631bc.svg",
     "index.html": "/ilan_auto/index.html",
-    "main.073c9b0a.css.map": "/ilan_auto/static/css/main.073c9b0a.css.map",
-    "main.38021ade.js.map": "/ilan_auto/static/js/main.38021ade.js.map",
-    "787.3255a535.chunk.js.map": "/ilan_auto/static/js/787.3255a535.chunk.js.map"
+    "static/media/mobile_menu_close.svg": "/ilan_auto/static/media/mobile_menu_close.55701069d543c5453b37.svg",
+    "static/media/mobile_menu.svg": "/ilan_auto/static/media/mobile_menu.a36f9e22d47dcb8b604b.svg",
+    "main.e41654e9.css.map": "/ilan_auto/static/css/main.e41654e9.css.map",
+    "main.84a0c30d.js.map": "/ilan_auto/static/js/main.84a0c30d.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.38021ade.js"
+    "static/css/main.e41654e9.css",
+    "static/js/main.84a0c30d.js"
   ]
 }
