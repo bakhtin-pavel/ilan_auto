@@ -12,11 +12,14 @@ const Header = () => {
     const size = useWindowSize();
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const closeMobileMenu = () => {
+        setMenuOpen(false)
+    }
 
     return (
         <>
             <div className={styles.container}>
-                <Logo styles={styles.logo} />
+                <Logo styles={styles.logo} mobleMenuClose={closeMobileMenu} />
                 {size.innerWidth > 1024
                     ? <>
                         <Navbar />

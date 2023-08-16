@@ -16,9 +16,9 @@
         color: #fff;
     }
 
-    &:focus {
-        color: #E41F1C;
-        transform: translateY(0px);
+    &:active {
+        transform: translateY(-4px);
+        transform: scale(0.9);
     }
 }
 
@@ -58,7 +58,6 @@
         -webkit-tap-highlight-color: transparent;
 
         &:active {
-            transform: translateY(-4px);
             color: #fff;
         }
     }
