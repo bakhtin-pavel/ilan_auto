@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ilan_auto/static/css/main.ee93ee3e.css",
-    "main.js": "/ilan_auto/static/js/main.bf1c9574.js",
+    "main.js": "/ilan_auto/static/js/main.f5d1f66c.js",
     "static/media/fon.png": "/ilan_auto/static/media/fon.ffd9bc9a7879d00b0914.png",
     "static/media/test_slider_auto3.png": "/ilan_auto/static/media/test_slider_auto3.9f536d84d275daed337b.png",
     "static/media/main_top_img.png": "/ilan_auto/static/media/main_top_img.4ee0fbcebe678c4870ab.png",
@@ -38,10 +38,10 @@
     "static/media/mobile_menu_close.svg": "/ilan_auto/static/media/mobile_menu_close.55701069d543c5453b37.svg",
     "static/media/mobile_menu.svg": "/ilan_auto/static/media/mobile_menu.a36f9e22d47dcb8b604b.svg",
     "main.ee93ee3e.css.map": "/ilan_auto/static/css/main.ee93ee3e.css.map",
-    "main.bf1c9574.js.map": "/ilan_auto/static/js/main.bf1c9574.js.map"
+    "main.f5d1f66c.js.map": "/ilan_auto/static/js/main.f5d1f66c.js.map"
   },
   "entrypoints": [
     "static/css/main.ee93ee3e.css",
-    "static/js/main.bf1c9574.js"
+    "static/js/main.f5d1f66c.js"
   ]
 }
