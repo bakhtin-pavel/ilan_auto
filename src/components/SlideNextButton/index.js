@@ -1,5 +1,3 @@
 import SlideNextButton from './SlideNextButton';
 
-export {
-    SlideNextButton
-};
+export default SlideNextButton;
