@@ -22,7 +22,7 @@ const BaseMainBlock = () => {
     const myArray = [
         { img: auto1, name: 'acura', },
         { img: auto2, name: 'isuzu', },
-        { img: auto3, name: 'acura ebat kakay navorochennay prym voobshe', },
+        { img: auto3, name: 'acura x-trail', },
         { img: auto3, name: 'acura 365', },
     ];
 
