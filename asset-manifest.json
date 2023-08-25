@@ -1,12 +1,14 @@
 {
   "files": {
-    "main.css": "/ilan_auto/static/css/main.d00e467a.css",
-    "main.js": "/ilan_auto/static/js/main.ef56f7dc.js",
+    "main.css": "/ilan_auto/static/css/main.51873787.css",
+    "main.js": "/ilan_auto/static/js/main.0c700513.js",
     "static/media/fon.png": "/ilan_auto/static/media/fon.ffd9bc9a7879d00b0914.png",
     "static/media/test_slider_auto3.png": "/ilan_auto/static/media/test_slider_auto3.9f536d84d275daed337b.png",
+    "static/media/main_car.png": "/ilan_auto/static/media/main_car.44e76b44e97c993f571e.png",
     "static/media/main_top_img.png": "/ilan_auto/static/media/main_top_img.4ee0fbcebe678c4870ab.png",
-    "static/media/main_car.png": "/ilan_auto/static/media/main_car.3d67013a977bbe600121.png",
+    "static/media/main_top_img_tablet.png": "/ilan_auto/static/media/main_top_img_tablet.f18f60de2a02c0f8229f.png",
     "static/media/test_slider_auto2.png": "/ilan_auto/static/media/test_slider_auto2.d44eeee94884da87e6cd.png",
+    "static/media/main_top_img_mobile.png": "/ilan_auto/static/media/main_top_img_mobile.8d1a4c4f1da9cd1fc4bf.png",
     "static/media/Onest Bold.ttf": "/ilan_auto/static/media/Onest Bold.78bc2eb3740882c9dd4a.ttf",
     "static/media/Onest Black.ttf": "/ilan_auto/static/media/Onest Black.434f83db06c35b79c801.ttf",
     "static/media/Onest Light.ttf": "/ilan_auto/static/media/Onest Light.db2bc4f3aafcbc7dd85c.ttf",
@@ -33,15 +35,17 @@
     "static/media/whatsapp.svg": "/ilan_auto/static/media/whatsapp.afbcbe0e1b5af68e6e99764aad25d66d.svg",
     "static/media/vk.svg": "/ilan_auto/static/media/vk.84b384977c49493b4589c05d864a2e1f.svg",
     "static/media/telegram.svg": "/ilan_auto/static/media/telegram.d0114d557deee5f1652ea41e576631bc.svg",
+    "static/media/red_strip_mobile.svg": "/ilan_auto/static/media/red_strip_mobile.c97d6e176f703f32618d.svg",
     "static/media/test_red_strip.svg": "/ilan_auto/static/media/test_red_strip.ef3e944d8820cf845a9d2b417743f811.svg",
+    "static/media/red_strip_tablet.svg": "/ilan_auto/static/media/red_strip_tablet.f1838f9e49f86f977e6a.svg",
     "index.html": "/ilan_auto/index.html",
     "static/media/mobile_menu_close.svg": "/ilan_auto/static/media/mobile_menu_close.55701069d543c5453b37.svg",
     "static/media/mobile_menu.svg": "/ilan_auto/static/media/mobile_menu.a36f9e22d47dcb8b604b.svg",
-    "main.d00e467a.css.map": "/ilan_auto/static/css/main.d00e467a.css.map",
-    "main.ef56f7dc.js.map": "/ilan_auto/static/js/main.ef56f7dc.js.map"
+    "main.51873787.css.map": "/ilan_auto/static/css/main.51873787.css.map",
+    "main.0c700513.js.map": "/ilan_auto/static/js/main.0c700513.js.map"
   },
   "entrypoints": [
-    "static/css/main.d00e467a.css",
-    "static/js/main.ef56f7dc.js"
+    "static/css/main.51873787.css",
+    "static/js/main.0c700513.js"
   ]
 }
