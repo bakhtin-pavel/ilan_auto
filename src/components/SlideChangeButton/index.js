@@ -1,5 +1,3 @@
 import SlideChangeButton from './SlideChangeButton';
 
-export {
-    SlideChangeButton,
-};
+export default SlideChangeButton;

@@ -1,0 +1,148 @@
+%buttonBase {
+    position: absolute;
+    z-index: 1;
+
+    width: 46px;
+    height: 24px;
+
+    pointer-events: auto;
+
+    .buttonSkew {
+        width: 34px;
+        height: 24px;
+        background-color: #3D4241;
+        transform: skewX(-26.56deg);
+        transform-origin: 50% 100% 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            width: 10px;
+            height: 20px;
+            transform: skewX(26.56deg);
+        }
+    }
+
+    &:active {
+        .buttonSkew {
+            background-color: #000;
+
+            svg {
+                path {
+                    fill: #FFF;
+                }
+            }
+        }
+    }
+
+    &:disabled {
+        .buttonSkew {
+            background-color: #D9D9D9;
+
+            svg {
+                path {
+                    fill: #FFF;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        width: 80px;
+        height: 40px;
+
+        .buttonSkew {
+            width: 60px;
+            height: 40px;
+
+            svg {
+                width: 15px;
+                height: 28px;
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .buttonSkew {
+            transition: all 200ms linear;
+
+            svg {
+                path {
+                    transition: all 200ms linear;
+                }
+            }
+        }
+
+        &:hover {
+            .buttonSkew {
+                background-color: #808080;
+
+                svg {
+                    path {
+                        fill: #FFF;
+                    }
+                }
+            }
+        }
+
+        &:active {
+            .buttonSkew {
+                background-color: #000;
+
+                svg {
+                    path {
+                        fill: #FFF;
+                    }
+                }
+            }
+        }
+
+        &:disabled {
+            .buttonSkew {
+                background-color: #D9D9D9;
+
+                svg {
+                    path {
+                        fill: #FFF;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.buttonPrev {
+    @extend %buttonBase;
+
+    bottom: -55px;
+    left: 63%;
+
+    @media (min-width: 768px) {
+        bottom: -90px;
+        left: 68%;
+    }
+
+    @media (min-width: 1025px) {
+        bottom: -110px;
+        left: 17.05%;
+    }
+}
+
+.buttonNext {
+    @extend %buttonBase;
+
+    bottom: -55px;
+    right: 8.5%;
+
+    @media (min-width: 768px) {
+        bottom: -90px;
+        right: 9.43%;
+    }
+
+    @media (min-width: 1025px) {
+        bottom: -110px;
+        right: 26.78%;
+    }
+}
