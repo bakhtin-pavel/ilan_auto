@@ -15,7 +15,7 @@ import auto3 from '../../../assets/img/test_slider_auto3.png';
 
 import { useWindowSize } from '../../../hooks/useWindowSize';
 
-import { SlideChangeButton } from '../../../components';
+import { SlideChangeButton, OrderButton } from '../../../components';
 
 const BaseMainBlock = () => {
 
@@ -90,6 +90,9 @@ const BaseMainBlock = () => {
                         </div>
                     </Swiper>
                 </div>
+            </div>
+            <div>
+                <OrderButton />
             </div>
         </div>
     )
