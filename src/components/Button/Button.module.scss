@@ -1,0 +1,40 @@
+.button {
+  padding: 6px 27px;
+  background-color: #e41f1c;
+
+  box-shadow: 0px 8px 20px -4px rgba(228, 31, 28, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  .shevroneWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .secondShevrone {
+      transition: margin-left 0.3s;
+
+      margin-left: -8px;
+    }
+  }
+
+  &:hover {
+    .shevroneWrap {
+      .secondShevrone {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .shevroneWrap {
+      .secondShevrone {
+        margin-left: 0;
+      }
+    }
+  }
+}
