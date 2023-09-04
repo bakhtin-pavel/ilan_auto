@@ -10,58 +10,58 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import MobileCatalogItem from "../../components/MobileCatalogItem/MobileCatalogItem";
 
 const Catalog = () => {
-    const handlePageChange = (page) => {
-        console.log(page);
-    };
+  const handlePageChange = (page) => {
+    console.log(page);
+  };
 
-    const { innerWidth } = useWindowSize();
+  const { innerWidth } = useWindowSize();
 
-    const isMobile = innerWidth < 768;
+  const isMobile = innerWidth < 768;
 
-    return (
-        <>
-            <div className={styles.catalogWrapper}>
-                <div className={styles.bg_blur} />
-                <CatalogFilter />
-                <CatalogSlider item={DATA} />
-            </div>
-            {!isMobile && (
-                <div className={styles.catalogListWrapper}>
-                    {DATA_LIST.map((item) => (
-                        <CatalogItem
-                            key={item.id}
-                            model={item.model}
-                            mark={item.mark}
-                            image={item.images[0]}
-                            oldPrice={item.price}
-                            extraPrice={item.price2}
-                        />
-                    ))}
-                </div>
-            )}
+  return (
+    <>
+      <div className={styles.catalogWrapper}>
+        <div className={styles.bg_blur} />
+        <CatalogFilter />
+        <CatalogSlider item={DATA} />
+      </div>
+      {!isMobile && (
+        <div className={styles.catalogListWrapper}>
+          {DATA_LIST.map((item) => (
+            <CatalogItem
+              key={item.id}
+              model={item.model}
+              mark={item.mark}
+              image={item.images[0]}
+              oldPrice={item.price}
+              extraPrice={item.price2}
+            />
+          ))}
+        </div>
+      )}
 
-            {isMobile && (
-                <div className={styles.catalogListWrapper}>
-                    {DATA_LIST.map((item) => (
-                        <MobileCatalogItem key={item.id} item={item} />
-                    ))}
-                </div>
-            )}
+      {isMobile && (
+        <div className={styles.catalogListWrapper}>
+          {DATA_LIST.map((item) => (
+            <MobileCatalogItem key={item.id} item={item} />
+          ))}
+        </div>
+      )}
 
-            <div className={styles.paginationWrapper}>
-                <Pagination
-                    current={1}
-                    total={50}
-                    pageSize={6}
-                    className={styles.pagination}
-                    onChange={handlePageChange}
-                    showPrevNextJumpers={false}
-                    showLessItems={false}
-                    showQuickJumper={false}
-                />
-            </div>
-        </>
-    );
+      <div className={styles.paginationWrapper}>
+        <Pagination
+          current={1}
+          total={50}
+          pageSize={6}
+          className={styles.pagination}
+          onChange={handlePageChange}
+          showPrevNextJumpers={false}
+          showLessItems={false}
+          showQuickJumper={false}
+        />
+      </div>
+    </>
+  );
 };
 
 export default Catalog;
