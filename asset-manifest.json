@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ilan_auto/static/css/main.40e364f1.css",
-    "main.js": "/ilan_auto/static/js/main.f896bfcc.js",
+    "main.js": "/ilan_auto/static/js/main.50924a72.js",
     "static/media/test_fon.svg": "/ilan_auto/static/media/test_fon.d920d269a6313e6eb7c5.svg",
     "static/media/test_slider_auto3.png": "/ilan_auto/static/media/test_slider_auto3.9f536d84d275daed337b.png",
     "static/media/catalog-bg.png": "/ilan_auto/static/media/catalog-bg.c7a1b023a524d3d3bffc.png",
@@ -58,10 +58,10 @@
     "static/media/nextSliderArrow.svg": "/ilan_auto/static/media/nextSliderArrow.750bae1ec9b342f2b6ba80974cdd3730.svg",
     "static/media/shevrone.svg": "/ilan_auto/static/media/shevrone.28f2998036933f323e257e7e80b710d9.svg",
     "main.40e364f1.css.map": "/ilan_auto/static/css/main.40e364f1.css.map",
-    "main.f896bfcc.js.map": "/ilan_auto/static/js/main.f896bfcc.js.map"
+    "main.50924a72.js.map": "/ilan_auto/static/js/main.50924a72.js.map"
   },
   "entrypoints": [
     "static/css/main.40e364f1.css",
-    "static/js/main.f896bfcc.js"
+    "static/js/main.50924a72.js"
   ]
 }
