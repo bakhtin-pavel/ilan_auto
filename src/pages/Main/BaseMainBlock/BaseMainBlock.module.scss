@@ -172,6 +172,21 @@
     pointer-events: none;
 }
 
+// Слайдер конец
+
+
+.orderButtonContainer {
+    width: 100%;
+    margin-top: 32px;
+
+    display: flex;
+    justify-content: center;
+
+    button {
+        transform: translateX(-45px);
+    }
+}
+
 
 
 @media (max-width: 1024px) {
@@ -245,6 +260,19 @@
 
     .buttonContainer {
         height: 24.41vw;
+    }
+
+    // Слайдер конец
+
+    .orderButtonContainer {
+        margin-top: 20px;
+        padding: 0 4.42%;
+
+        justify-content: flex-start;
+
+        button {
+            transform: translateX(0);
+        }
     }
 
 }
@@ -326,4 +354,10 @@
         height: 22.44vw;
     }
 
+    // Слайдер конец
+
+    .orderButtonContainer {
+        margin-top: 12px;
+        padding: 0 4.44%;
+    }
 }

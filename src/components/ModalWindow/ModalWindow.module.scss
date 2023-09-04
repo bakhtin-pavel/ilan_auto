@@ -1,0 +1,32 @@
+%baseModal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+
+    padding-top: 80px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.modal {
+    @extend %baseModal;
+    display: none;
+}
+
+.modalActive {
+    @extend %baseModal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContentWrapper {
+    width: 840px;
+    padding: 60px 100px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100px 100%, 0 70%);
+    background: rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(40px);
+}

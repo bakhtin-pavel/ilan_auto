@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './BaseMainBlock.module.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,7 +15,7 @@ import auto3 from '../../../assets/img/test_slider_auto3.png';
 
 import { useWindowSize } from '../../../hooks/useWindowSize';
 
-import { SlideChangeButton, OrderButton } from '../../../components';
+import { SlideChangeButton, OrderButton, ModalWindow, ApplicationForm } from '../../../components';
 
 const BaseMainBlock = () => {
 
@@ -27,6 +27,8 @@ const BaseMainBlock = () => {
     ];
 
     const size = useWindowSize();
+
+    const [modal, setModal] = useState(false);
 
     return (
         <div className={styles.container}>
@@ -91,9 +93,15 @@ const BaseMainBlock = () => {
                     </Swiper>
                 </div>
             </div>
-            <div>
-                <OrderButton />
+
+            <div className={styles.orderButtonContainer}>
+                <OrderButton onClick={() => setModal(true)}>
+                    Заказать
+                </OrderButton>
             </div>
+            <ModalWindow visible={modal} setVisible={setModal}>
+                <ApplicationForm />
+            </ModalWindow>
         </div>
     )
 }

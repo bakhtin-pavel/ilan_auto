@@ -1,0 +1,30 @@
+.header {
+    width: 100%;
+
+    display: flex;
+    gap: 4px;
+
+    div {
+        width: 12px;
+        margin: 5px 0 6px 0;
+        flex-shrink: 0;
+        background: #BDBDBD;
+    }
+
+    @media (min-width: 768px) {
+        gap: 8px;
+
+        div {
+            width: 26px;
+            margin: 8px 0 10px 0;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        gap: 12px;
+
+        div {
+            width: 66px;
+        }
+    }
+}

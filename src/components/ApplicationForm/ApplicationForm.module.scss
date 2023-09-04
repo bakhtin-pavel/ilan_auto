@@ -1,0 +1,160 @@
+.container {
+    width: 100%;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.formBlock {
+    width: 100%;
+
+    p {
+        color: #FFF;
+        font-size: 32px;
+    }
+}
+
+.formBlockMessendger {
+    width: 100%;
+    margin-top: -10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    p {
+        flex-grow: 1;
+        color: #FFF;
+        font-size: 32px;
+    }
+
+    div {
+        position: relative;
+        width: 55px;
+        height: 55px;
+
+        &:active {
+            transform: scale(0.9);
+        }
+
+        input {
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+        }
+
+        %label {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 55px;
+            height: 55px;
+        }
+
+        input+.whatsapp {
+            @extend %label;
+        }
+
+        input:checked+.whatsapp {
+            @extend %label;
+
+            path {
+                fill: #43D854;
+            }
+        }
+
+        input+.telegram {
+            @extend %label;
+        }
+
+        input:checked+.telegram {
+            @extend %label;
+
+            path {
+                fill: #08C;
+            }
+        }
+    }
+}
+
+.politic {
+    max-width: 314px;
+    margin-top: -10px;
+
+    color: #D9D9D9;
+    font-size: 14px;
+
+    a {
+        color: #D9D9D9;
+        font-size: 14px;
+        text-decoration-line: underline !important;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .form {
+        gap: 30px;
+    }
+
+    .formBlock {
+        p {
+            font-size: 24px;
+        }
+    }
+
+    .formBlockMessendger {
+        gap: 14px;
+
+        p {
+            font-size: 24px;
+        }
+
+        div {
+            width: 32px;
+            height: 32px;
+
+            input {
+                width: 32px;
+                height: 32px;
+            }
+
+            %label {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .form {
+        gap: 20px;
+    }
+
+    .formBlock {
+        p {
+            font-size: 20px;
+        }
+    }
+
+    .formBlockMessendger {
+        p {
+            font-size: 20px;
+        }
+    }
+
+}
