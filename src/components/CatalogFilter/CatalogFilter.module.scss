@@ -79,6 +79,9 @@
 
   cursor: pointer;
 
+  display: flex !important;
+  justify-content: center !important;
+
   @media (max-width: 786px) {
     font-size: 14px;
   }
@@ -99,7 +102,28 @@
   display: flex;
   align-items: center;
 
+  width: 100%;
+
   @media (max-width: 786px) {
+  }
+
+  :global {
+    .slick-prev {
+      width: 8px;
+      height: 8px;
+
+      left: -12px;
+    }
+
+    .slick-next {
+      width: 8px;
+      height: 8px;
+
+      right: -12px !important;
+      top: 0;
+
+      transform: rotate(180deg);
+    }
   }
 }
 
