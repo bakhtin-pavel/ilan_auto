@@ -103,13 +103,7 @@ const CatalogFilter = () => {
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
-    return isMobile ? (
-      <ArrowLeftIcon
-        onClick={onClick}
-        className={className}
-        style={{ ...style, height: "100%", right: -32 }}
-      />
-    ) : (
+    return (
       <ArrowLeftIcon
         onClick={onClick}
         className={className}
@@ -120,13 +114,7 @@ const CatalogFilter = () => {
 
   const SamplePrevArrow = (props) => {
     const { className, style, onClick } = props;
-    return isMobile ? (
-      <ArrowLeftIcon
-        onClick={onClick}
-        className={className}
-        style={{ ...style, height: "100%", right: -32 }}
-      />
-    ) : (
+    return (
       <ArrowLeftIcon
         onClick={onClick}
         className={className}
@@ -135,10 +123,13 @@ const CatalogFilter = () => {
     );
   };
 
+  console.log(isMobile);
+
   const sliderOption = {
-    slidesToShow: 3,
+    slidesToShow: isMobile ? 3 : 4,
+    slidesToScroll: 1,
     infinite: false,
-    initialSlide: itemsFilters?.year?.length - 1 || 4,
+    // initialSlide: itemsFilters?.years?.length - 1 || 4,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
@@ -169,9 +160,9 @@ const CatalogFilter = () => {
         <p className={styles.filterTitle}>Год&nbsp;выпуска</p>
         <div className={styles.yearsWrapper} ref={sliderWrapperRef}>
           {/* <ArrowLeftIcon className={styles.arrow} /> */}
-          <Slider {...sliderOption} style={{ width: sliderWidth - 16 }}>
-            {itemsFilters &&
-              itemsFilters.years
+          {itemsFilters && (
+            <Slider {...sliderOption} style={{ width: sliderWidth - 16 }}>
+              {itemsFilters.years
                 .sort((a, b) => a - b)
                 .map((item, index) => (
                   <FigureBlock
@@ -185,7 +176,8 @@ const CatalogFilter = () => {
                     <span>{item}</span>
                   </FigureBlock>
                 ))}
-          </Slider>
+            </Slider>
+          )}
 
           {/* <ArrowLeftIcon
                         className={classnames([styles.arrow, styles.arrowNext])}
