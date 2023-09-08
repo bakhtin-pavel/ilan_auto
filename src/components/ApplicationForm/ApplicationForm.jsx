@@ -1,19 +1,37 @@
 import React, { useState } from 'react';
 import styles from './ApplicationForm.module.scss';
 
+import axios from 'axios';
+
 import ApplicationInput from '../ApplicationInput/ApplicationInput';
 import { Whatsapp, Telegram } from '../../assets/icons';
 import OrderButton from '../OrderButton';
 import politic_doc from '../../assets/documents/politic.pdf';
 
-const ApplicationForm = () => {
+const ApplicationForm = ({ close }) => {
 
-    const [application, setApplication] = useState({ name: '', phone: '', whatsapp: false, telegram: false })
+    const [application, setApplication] = useState({ name: '', phone: '', whatsapp: false, telegram: false });
+    const [errorCheck, setErrorCheck] = useState('');
 
-    const vremennoe = (e) => {
+    async function submitApplication(e) {
         e.preventDefault();
 
-        setApplication({ ...application, name: '', phone: '', whatsapp: false, telegram: false })
+        await axios.post('http://194.67.121.62:8005/v1/feedback', {
+            phone: application.phone,
+            username: application.name,
+            telegram: application.telegram,
+            whatsapp: application.whatsapp,
+        })
+            .then(function (response) {
+                console.log(response);
+                setErrorCheck('')
+                setApplication({ ...application, name: '', phone: '', whatsapp: false, telegram: false });
+                close(false);
+            })
+            .catch(function (error) {
+                console.log(error);
+                setErrorCheck(error.response.data.data.message.slice(0, -1))
+            });
     }
 
     return (
@@ -56,7 +74,8 @@ const ApplicationForm = () => {
                         <Telegram className={styles.telegram} />
                     </div>
                 </div>
-                <OrderButton onClick={vremennoe}>
+                {errorCheck && <p className={styles.errorText}>{errorCheck}!</p>}
+                <OrderButton onClick={submitApplication}>
                     Отправить
                 </OrderButton>
                 <p className={styles.politic}>Нажимая кнопку Отправить, вы соглашаетесь с <a href={politic_doc} target='_blank' rel="noreferrer">Политикой обработки персональных данных</a></p>

@@ -3,13 +3,13 @@ import styles from './SlideChangeButton.module.scss';
 
 import { useSwiper } from 'swiper/react';
 
-export default function SlideChangeButton({ isNext }) {
+export default function SlideChangeButton({ isNext, position }) {
     const swiper = useSwiper();
 
     return (
         <>
             <button
-                className={isNext ? styles.buttonNext : styles.buttonPrev}
+                className={isNext ? [styles.buttonNext, position].join(' ') : [styles.buttonPrev, position].join(' ')}
                 onClick={() => isNext ? swiper.slideNext() : swiper.slidePrev()}
             >
                 <div className={styles.buttonSkew}>

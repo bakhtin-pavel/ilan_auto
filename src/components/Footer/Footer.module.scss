@@ -1,0 +1,253 @@
+.container {
+    width: 100%;
+    background: url(../../assets/img/footer_background.png);
+    background-size: cover;
+}
+
+.footerTop {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(1.5px);
+    padding: 40px 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 256px;
+    height: 96px;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.navbar {
+    display: flex;
+    gap: 100px;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+%baseLink {
+    color: #D9D9D9;
+    font-size: 20px;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 200ms ease-in;
+
+    &:hover {
+        transform: translateY(-4px);
+        color: #fff;
+    }
+
+    &:active {
+        transform: translateY(-4px);
+        transform: scale(0.9);
+    }
+}
+
+.link {
+    @extend %baseLink;
+}
+
+.activeLink {
+    @extend %baseLink;
+    color: #E41F1C;
+
+    &:hover {
+        transform: translateY(0px);
+        color: #E41F1C;
+    }
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        p {
+            max-width: 150px;
+            color: #D9D9D9;
+            font-size: 20px;
+
+            @media (min-width: 1600px) {
+                max-width: 500px;
+            }
+        }
+
+        a {
+            color: #D9D9D9;
+            font-size: 20px;
+        }
+    }
+}
+
+.footerBot {
+    width: 100%;
+    background: #3D4241;
+    padding: 12px 80px 14px 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        p {
+            color: #CCC;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .privacy {
+            color: #E6E6E6;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+    }
+}
+
+
+
+@media (max-width: 1024px) {
+
+    .footerTop {
+        padding: 40px 34px;
+    }
+
+    .logo {
+        width: 160px;
+        height: 60px;
+    }
+
+    .navbar {
+        gap: 55px;
+    }
+
+    %baseLink {
+        font-size: 16px;
+        transition: all 0ms ease-in;
+
+        &:hover {
+            transform: translateY(0px);
+            color: #D9D9D9;
+        }
+
+        &:active {
+            color: #fff;
+        }
+    }
+
+    .contacts {
+        div {
+            p {
+                font-size: 16px;
+            }
+
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .footerBot {
+        padding: 13px 34px 15px 34px;
+
+        div {
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+
+            div {
+                flex-direction: row;
+            }
+        }
+
+        .left {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+        }
+    }
+
+}
+
+
+
+@media (max-width: 767px) {
+
+    .footerTop {
+        padding: 25px 40px;
+
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-self: flex-start;
+        gap: 5px;
+
+        div {
+            gap: 5px;
+        }
+    }
+
+    .contacts {
+        align-self: flex-start;
+
+        div {
+            p {
+                max-width: 100%;
+            }
+        }
+    }
+
+    .footerBot {
+        padding: 12px 16px 14px 16px;
+
+        div {
+            gap: 1px;
+
+            p {
+                font-size: 14px;
+            }
+
+            .privacy {
+                font-size: 14px;
+            }
+
+            div {
+                gap: 6px;
+
+                .icon {
+                    width: 17px;
+                    height: 17px;
+                }
+
+                .name {
+                    width: 90px;
+                    height: 9px;
+                }
+            }
+        }
+    }
+
+}

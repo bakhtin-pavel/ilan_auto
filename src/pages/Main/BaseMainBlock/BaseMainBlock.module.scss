@@ -33,6 +33,24 @@
         background-size: 100% auto;
         background-repeat: no-repeat;
 
+        .mainCarName {
+            position: absolute;
+            top: 24%;
+            right: 6.25%;
+
+            p {
+                color: #FFF;
+                font-size: 5vw;
+                font-weight: 500;
+                line-height: 100%;
+                text-transform: uppercase;
+
+                &:last-child {
+                    font-size: 10vw;
+                }
+            }
+        }
+
         .topBlockCar {
             position: absolute;
             right: -6.25%;
@@ -199,6 +217,19 @@
         .topBlock {
             background-image: url(../../../assets/img/red_strip_tablet.svg);
 
+            .mainCarName {
+                top: 37%;
+                right: 4.5%;
+
+                p {
+                    font-size: 5.2vw;
+
+                    &:last-child {
+                        font-size: 9.4vw;
+                    }
+                }
+            }
+
             .topBlockCar {
                 right: -12.24%;
                 bottom: -10%;
@@ -288,6 +319,18 @@
     .topBlockContainer {
         .topBlock {
             background-image: none;
+
+            .mainCarName {
+                top: 31%;
+
+                p {
+                    font-size: 10vw;
+
+                    &:last-child {
+                        font-size: 18vw;
+                    }
+                }
+            }
 
             .topBlockCar {
                 right: -16%;

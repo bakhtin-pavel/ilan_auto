@@ -24,9 +24,44 @@
 }
 
 .modalContentWrapper {
+    position: relative;
     width: 840px;
     padding: 60px 100px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 100px 100%, 0 70%);
     background: rgba(0, 0, 0, 0.60);
     backdrop-filter: blur(40px);
+
+    @media (max-width: 1024px) {
+
+        padding: 50px 80px;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 80px 100%, 0 75%);
+
+    }
+
+    @media (max-width: 767px) {
+
+        padding: 50px 40px;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 40px 100%, 0 80%);
+
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    @media (max-width: 1024px) {
+        top: 35px;
+        right: 35px;
+    }
+
+    @media (max-width: 767px) {
+        top: 20px;
+        right: 15px;
+    }
 }

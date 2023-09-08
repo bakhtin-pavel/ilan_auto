@@ -10,7 +10,9 @@ const Logo = ({ styles, mobleMenuClose }) => {
                 left: 0,
                 behavior: 'smooth',
             });
-            mobleMenuClose();
+            if (mobleMenuClose) {
+                mobleMenuClose();
+            }
         }}>
             <LogoImg className={styles} />
         </Link>

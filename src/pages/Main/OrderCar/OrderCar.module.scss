@@ -118,6 +118,14 @@
     justify-self: end;
 }
 
+.errorText {
+    margin-top: 10px;
+    padding: 0 80px;
+    color: #E41F1C;
+    font-size: 32px;
+    text-align: right;
+}
+
 @media (max-width: 1024px) {
 
     .container {
@@ -167,6 +175,12 @@
         a {
             font-size: 12px;
         }
+    }
+
+    .errorText {
+        margin-top: 10px;
+        padding: 0 34px;
+        font-size: 24px;
     }
 
 }
@@ -231,6 +245,13 @@
     .buttonWrapper {
         margin-top: 5px;
         justify-self: center;
+    }
+
+    .errorText {
+        margin-top: 0px;
+        padding: 0 16px;
+        font-size: 18px;
+        text-align: center;
     }
 
 }

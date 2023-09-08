@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './BaseMainBlock.module.scss';
+
+import axios from 'axios';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -26,6 +28,36 @@ const BaseMainBlock = () => {
         { img: auto3, name: 'acura 365', },
     ];
 
+    const [itemsBanner, setItemsBanner] = useState(null)
+
+    async function fetchBanners() {
+        const response = await axios.get('http://194.67.121.62:8005/v1/banners');
+        setItemsBanner(response.data.data);
+        console.log(response.data.data);
+    }
+
+    useEffect(() => {
+        fetchBanners()
+    }, [])
+
+    const [items, setItems] = useState(null)
+
+    async function fetchPopAuto() {
+        const response = await axios.get('http://194.67.121.62:8005/v1/auto/popular');
+        setItems(response.data.data);
+        console.log(response.data.data);
+    }
+
+    useEffect(() => {
+        fetchPopAuto()
+    }, [])
+
+    const formattedNumberValue = (el) => {
+        const str = String(el);
+        const formattedValue = str.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        return formattedValue
+    }
+
     const size = useWindowSize();
 
     const [modal, setModal] = useState(false);
@@ -39,7 +71,11 @@ const BaseMainBlock = () => {
                     alt="" className={styles.topBlockBackgroundImg}
                 />
                 <div className={styles.topBlock}>
-                    <img src={mainCar} alt="" className={styles.topBlockCar} />
+                    {itemsBanner && <div
+                        className={styles.mainCarName}
+                        dangerouslySetInnerHTML={{ __html: itemsBanner[0].title }}
+                    ></div>}
+                    {itemsBanner && <img src={itemsBanner[0].image} alt="" className={styles.topBlockCar} />}
                     <div className={styles.rightGradient}></div>
                 </div>
             </div>
@@ -51,46 +87,48 @@ const BaseMainBlock = () => {
 
             <div className={styles.slider}>
                 <div className={styles.sliderWrapper}>
-                    <Swiper
-                        slidesPerView={2}
-                        spaceBetween={0}
-                        slidesOffsetBefore={20}
-                        centeredSlides={false}
-                        loop={true}
-                        className={styles.sliderTest}
-                        breakpoints={{
-                            768: {
-                                slidesPerView: 2,
-                                spaceBetween: 0,
-                                slidesOffsetBefore: 40,
-                                centeredSlides: false,
-                            },
-                            1025: {
-                                slidesPerView: 3,
-                                spaceBetween: 55,
-                                slidesOffsetBefore: 0,
-                                centeredSlides: true,
-                            },
-                        }}
-                    >
-                        {myArray.concat(myArray, myArray).map((element, index) =>
-                            <SwiperSlide key={index}>
-                                {({ isActive }) => (
-                                    <div className={isActive ? styles.slideActive : styles.slide}>
-                                        <div className={styles.slideImg}>
-                                            <img src={element.img} alt="" />
+                    {items &&
+                        <Swiper
+                            slidesPerView={2}
+                            spaceBetween={0}
+                            slidesOffsetBefore={20}
+                            centeredSlides={false}
+                            loop={true}
+                            className={styles.sliderTest}
+                            breakpoints={{
+                                768: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 0,
+                                    slidesOffsetBefore: 40,
+                                    centeredSlides: false,
+                                },
+                                1025: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 55,
+                                    slidesOffsetBefore: 0,
+                                    centeredSlides: true,
+                                },
+                            }}
+                        >
+                            {items.concat(items, items).map((item, index) =>
+                                <SwiperSlide key={index}>
+                                    {({ isActive }) => (
+                                        <div className={isActive ? styles.slideActive : styles.slide}>
+                                            <div className={styles.slideImg}>
+                                                <img src={item.photo} alt="" />
+                                            </div>
+                                            <p className={styles.slideName}>{item.name}</p>
+                                            <p className={styles.slidePrice}>от {formattedNumberValue(item.price)} ₽</p>
                                         </div>
-                                        <p className={styles.slideName}>{element.name}</p>
-                                        <p className={styles.slidePrice}>от 2 890 000 ₽</p>
-                                    </div>
-                                )}
-                            </SwiperSlide>
-                        )}
-                        <div className={styles.buttonContainer}>
-                            <SlideChangeButton isNext={false} />
-                            <SlideChangeButton isNext={true} />
-                        </div>
-                    </Swiper>
+                                    )}
+                                </SwiperSlide>
+                            )}
+                            <div className={styles.buttonContainer}>
+                                <SlideChangeButton isNext={false} />
+                                <SlideChangeButton isNext={true} />
+                            </div>
+                        </Swiper>
+                    }
                 </div>
             </div>
 
@@ -100,7 +138,7 @@ const BaseMainBlock = () => {
                 </OrderButton>
             </div>
             <ModalWindow visible={modal} setVisible={setModal}>
-                <ApplicationForm />
+                <ApplicationForm close={setModal} />
             </ModalWindow>
         </div>
     )

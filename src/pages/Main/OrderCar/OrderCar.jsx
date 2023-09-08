@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from './OrderCar.module.scss';
 
+import axios from 'axios';
+
 import { HeaderOnHomepage, OrderButton, OrderCarInput } from '../../../components';
 import { Whatsapp, Telegram } from '../../../assets/icons';
 import politic_doc from '../../../assets/documents/politic.pdf';
@@ -20,29 +22,57 @@ const OrderCar = () => {
         whatsapp: false,
         telegram: false,
     });
+    const [errorCheck, setErrorCheck] = useState('');
 
-    const vremennoe = (e) => {
+    async function submitApplication(e) {
         e.preventDefault();
 
-        setApplication({
-            ...application,
-            marka: '',
-            model: '',
-            mileage: '',
-            budgetFrom: '',
-            budgetUpTo: '',
-            yearFrom: '',
-            yearUpTo: '',
-            name: '',
-            phone: '',
-            whatsapp: false,
-            telegram: false,
+        await axios.post('http://194.67.121.62:8005/v1/auto/order', {
+            model: application.model,
+            mark: application.marka,
+            kmTo: forSendApplication(application.mileage),
+            priceFrom: forSendApplication(application.budgetFrom),
+            priceTo: forSendApplication(application.budgetUpTo),
+            yearFrom: forSendApplication(application.yearFrom),
+            yearTo: forSendApplication(application.yearUpTo),
+            fullName: application.name,
+            phone: application.phone,
+            telegram: application.telegram,
+            whatsapp: application.whatsapp,
         })
+            .then(function (response) {
+                console.log(response);
+                setErrorCheck('')
+                setApplication({
+                    ...application,
+                    marka: '',
+                    model: '',
+                    mileage: '',
+                    budgetFrom: '',
+                    budgetUpTo: '',
+                    yearFrom: '',
+                    yearUpTo: '',
+                    name: '',
+                    phone: '',
+                    whatsapp: false,
+                    telegram: false,
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+                setErrorCheck(error.response.data.data.message.slice(0, -1))
+            });
     }
 
     useEffect(() => {
         console.log(application)
     }, [application])
+
+    const forSendApplication = (element) => {
+        const sanitizedValue = element.replace(/ /g, "");
+        const result = Number(sanitizedValue);
+        return result
+    }
 
     const formattedNumberValue = (e) => {
         const value = e.target.value;
@@ -141,9 +171,10 @@ const OrderCar = () => {
                 </div>
                 <p className={styles.politic}>Нажимая кнопку Отправить, вы соглашаетесь с <a href={politic_doc} target='_blank' rel="noreferrer">Политикой обработки персональных данных</a></p>
                 <div className={styles.buttonWrapper}>
-                    <OrderButton onClick={vremennoe}>Отправить</OrderButton>
+                    <OrderButton onClick={submitApplication}>Отправить</OrderButton>
                 </div>
             </form>
+            {errorCheck && <p className={styles.errorText}>{errorCheck}!</p>}
         </section>
     )
 }

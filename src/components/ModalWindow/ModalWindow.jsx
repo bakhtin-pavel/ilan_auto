@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './ModalWindow.module.scss';
 
+import { CloseIcon } from '../../assets/icons';
+
 const ModalWindow = ({ children, visible, setVisible }) => {
 
     const contentRef = useRef(null);
@@ -23,6 +25,7 @@ const ModalWindow = ({ children, visible, setVisible }) => {
     return (
         <div className={visible ? styles.modalActive : styles.modal}>
             <div ref={contentRef} className={styles.modalContentWrapper}>
+                <CloseIcon className={styles.closeButton} onClick={() => setVisible(false)} />
                 {children}
             </div>
         </div>
