@@ -129,7 +129,6 @@ const CatalogFilter = () => {
     slidesToShow: isMobile ? 3 : 4,
     slidesToScroll: 1,
     infinite: false,
-    // initialSlide: itemsFilters?.years?.length - 1 || 4,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
@@ -159,7 +158,6 @@ const CatalogFilter = () => {
       <div className={styles.yearsFilter}>
         <p className={styles.filterTitle}>Год&nbsp;выпуска</p>
         <div className={styles.yearsWrapper} ref={sliderWrapperRef}>
-          {/* <ArrowLeftIcon className={styles.arrow} /> */}
           {itemsFilters && (
             <Slider {...sliderOption} style={{ width: sliderWidth - 16 }}>
               {itemsFilters.years
@@ -178,10 +176,6 @@ const CatalogFilter = () => {
                 ))}
             </Slider>
           )}
-
-          {/* <ArrowLeftIcon
-                        className={classnames([styles.arrow, styles.arrowNext])}
-                    /> */}
         </div>
       </div>
       {!isMobile && (
