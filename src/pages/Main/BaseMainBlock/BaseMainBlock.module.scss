@@ -11,6 +11,106 @@
     overflow-x: hidden;
 }
 
+.videoTopWrapper {
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    backdrop-filter: blur(3px);
+    position: relative;
+    z-index: 2;
+    animation: animFirstIn 900ms ease;
+}
+
+@keyframes animFirstIn {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.videoEnter {
+    transform: translateY(-100%);
+}
+
+.videoEnterActive {
+    transform: translateY(0);
+    transition: all 900ms linear;
+}
+
+.videoExit {
+    transform: translateY(0);
+}
+
+.videoExitActive {
+    transform: translateY(-100%);
+    transition: all 400ms linear;
+}
+
+.videoTop {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+        top: auto;
+        bottom: 0;
+    }
+}
+
+.buttonChangeContainer {
+    position: absolute;
+    top: 52.5%;
+    left: 40px;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    button {
+        width: 38px;
+        height: 20px;
+        background: #808080;
+        clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+
+        @media (max-width: 1024px) {
+            width: 28px;
+            height: 16px;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+        }
+    }
+
+    .activeButton {
+        background: #fff;
+    }
+}
+
+// Таймер анимация
+
+.promotionEnter {
+    transform: translateX(-100%);
+}
+
+.promotionEnterActive {
+    transform: translateX(0);
+    transition: all 600ms linear;
+}
+
+.promotionExit {
+    transform: translateX(0);
+}
+
+.promotionExitActive {
+    transform: translateX(-100%);
+    transition: all 400ms linear;
+}
+
+// Таймер анимация конец
+
 .topBlockContainer {
     position: relative;
 
@@ -38,6 +138,8 @@
             top: 24%;
             right: 6.25%;
 
+            animation: carNameAnim 400ms ease-out;
+
             p {
                 color: #FFF;
                 font-size: 5vw;
@@ -51,6 +153,34 @@
             }
         }
 
+        @keyframes carNameAnim {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .carNameEnter {
+            opacity: 0;
+        }
+
+        .carNameEnterActive {
+            opacity: 1;
+            transition: all 600ms ease-in;
+        }
+
+        .carNameExit {
+            opacity: 1;
+        }
+
+        .carNameExitActive {
+            opacity: 0;
+            transition: all 200ms linear;
+        }
+
         .topBlockCar {
             position: absolute;
             right: -6.25%;
@@ -59,6 +189,36 @@
             width: 67.2%;
             height: 66%;
             object-fit: contain;
+
+            animation: carAnim 400ms ease-out;
+        }
+
+        @keyframes carAnim {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .carTopEnter {
+            transform: translateX(100%);
+        }
+
+        .carTopEnterActive {
+            transform: translateX(0);
+            transition: all 600ms linear;
+        }
+
+        .carTopExit {
+            transform: translateX(0);
+        }
+
+        .carTopExitActive {
+            transform: translateX(100%);
+            transition: all 400ms linear;
         }
 
         .rightGradient {
@@ -95,7 +255,7 @@
 
 .slider {
     width: 100%;
-    margin-top: 5.7%;
+    margin-top: 6%;
 
     display: flex;
     justify-content: center;
@@ -120,7 +280,7 @@
     .slideImg {
         position: relative;
 
-        width: 80%;
+        width: 75%;
         height: 11.72vw;
         transition: all 350ms ease-in;
 
@@ -211,6 +371,10 @@
 
     .container {
         background-image: url(../../../assets/img/red_strip_tablet.svg);
+    }
+
+    .buttonChangeContainer {
+        left: 34px;
     }
 
     .topBlockContainer {
@@ -314,6 +478,11 @@
 
     .container {
         background-image: url(../../../assets/img/red_strip_mobile.svg);
+    }
+
+    .buttonChangeContainer {
+        top: 45%;
+        left: 16px;
     }
 
     .topBlockContainer {

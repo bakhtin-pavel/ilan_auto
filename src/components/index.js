@@ -8,6 +8,7 @@ import ModalWindow from './ModalWindow';
 import ApplicationForm from './ApplicationForm';
 import HeaderOnHomepage from './HeaderOnHomepage';
 import OrderCarInput from './OrderCarInput';
+import Promotion from './Promotion';
 
 export {
     SlideChangeButton,
@@ -20,4 +21,5 @@ export {
     ApplicationForm,
     HeaderOnHomepage,
     OrderCarInput,
+    Promotion,
 };

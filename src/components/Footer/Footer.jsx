@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Footer.module.scss';
 
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -24,14 +24,31 @@ const Footer = () => {
         fetchContacts()
     }, [])
 
+    const { pathname } = useLocation();
     const navigate = useNavigate();
 
     const currentPath = '/';
-    const idArray = ['carOrder', 'clientReviews', 'faq', 'team', 'aboutUs'];
+    const idArray = ['carOrder', 'clientReviews', 'faq', 'aboutUs'];
     const activeAnchor = useElementVisible(currentPath, idArray);
 
+    const handleClickAnchor = (id, e) => {
+        e.preventDefault();
+        if (pathname !== '/') {
+            navigate('/');
+            setTimeout(() => {
+                const anchorElement = document.getElementById(id);
+                anchorElement.scrollIntoView({ behavior: 'smooth' });
+            }, 800);
+        } else {
+            setTimeout(() => {
+                const anchorElement = document.getElementById(id);
+                anchorElement.scrollIntoView({ behavior: 'smooth' });
+            }, 150);
+        }
+    }
+
     return (
-        <footer className={styles.container}>
+        <footer className={styles.container} id='contacts'>
             <div className={styles.footerTop}>
                 <Logo styles={styles.logo} />
                 <div className={styles.navbar}>
@@ -42,19 +59,20 @@ const Footer = () => {
                         >
                             Каталог
                         </NavLink>
-                        <a href='#carOrder' onClick={() => navigate('/')} className={activeAnchor === 'carOrder' ? styles.activeLink : styles.link}>Заказ авто</a>
-                        <a href='#clientReviews' onClick={() => navigate('/')} className={activeAnchor === 'clientReviews' ? styles.activeLink : styles.link}>Отзывы</a>
-                        <a href='#faq' onClick={() => navigate('/')} className={activeAnchor === 'faq' ? styles.activeLink : styles.link}>FAQ</a>
+                        <a href='#carOrder' onClick={(e) => handleClickAnchor('carOrder', e)} className={activeAnchor === 'carOrder' ? styles.activeLink : styles.link}>Заказ авто</a>
+
                     </div>
                     <div>
-                        <a href='#team' onClick={() => navigate('/')} className={activeAnchor === 'team' ? styles.activeLink : styles.link}>Команда</a>
-                        <a href='#aboutUs' onClick={() => navigate('/')} className={activeAnchor === 'aboutUs' ? styles.activeLink : styles.link}>О нас</a>
-                        <NavLink
+                        {/* <a href='#team' onClick={(e) => handleClickAnchor('team', e)} className={activeAnchor === 'team' ? styles.activeLink : styles.link}>Команда</a> */}
+                        <a href='#clientReviews' onClick={(e) => handleClickAnchor('clientReviews', e)} className={activeAnchor === 'clientReviews' ? styles.activeLink : styles.link}>Отзывы</a>
+                        <a href='#faq' onClick={(e) => handleClickAnchor('faq', e)} className={activeAnchor === 'faq' ? styles.activeLink : styles.link}>FAQ</a>
+                        <a href='#aboutUs' onClick={(e) => handleClickAnchor('aboutUs', e)} className={activeAnchor === 'aboutUs' ? styles.activeLink : styles.link}>О нас</a>
+                        {/* <NavLink
                             to='/premium_car'
                             className={({ isActive }) => isActive ? styles.activeLink : styles.link}
                         >
                             Премиум авто
-                        </NavLink>
+                        </NavLink> */}
                     </div>
                 </div>
                 <div className={styles.contacts}>

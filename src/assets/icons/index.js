@@ -11,6 +11,16 @@ import { ReactComponent as MobileNextSliderArrow } from "./mobileNextSliderArrow
 import { ReactComponent as DeveloperIcon } from "./developer_icon.svg";
 import { ReactComponent as DeveloperName } from "./developer_name.svg";
 import { ReactComponent as CloseIcon } from "./mobile_menu_close.svg";
+import { ReactComponent as TimerIcon } from "./timer_icon.svg";
+import { ReactComponent as FAQIconPlus } from "./faq_icon_plus.svg";
+import { ReactComponent as FAQIconMinus } from "./faq_icon_minus.svg";
+import { ReactComponent as Advantages1 } from "./advantages1.svg";
+import { ReactComponent as Advantages2 } from "./advantages2.svg";
+import { ReactComponent as Advantages3 } from "./advantages3.svg";
+import { ReactComponent as Advantages4 } from "./advantages4.svg";
+import { ReactComponent as Advantages5 } from "./advantages5.svg";
+import { ReactComponent as AuctionLeft } from "./auctionLeft.svg";
+// import { ReactComponent as AuctionRight } from "./auctionRight.svg";
 
 export {
     LogoImg,
@@ -26,4 +36,14 @@ export {
     DeveloperIcon,
     DeveloperName,
     CloseIcon,
+    TimerIcon,
+    FAQIconPlus,
+    FAQIconMinus,
+    Advantages1,
+    Advantages2,
+    Advantages3,
+    Advantages4,
+    Advantages5,
+    AuctionLeft,
+    // AuctionRight,
 };

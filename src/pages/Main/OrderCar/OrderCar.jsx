@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './OrderCar.module.scss';
 
 import axios from 'axios';
@@ -63,10 +63,6 @@ const OrderCar = () => {
                 setErrorCheck(error.response.data.data.message.slice(0, -1))
             });
     }
-
-    useEffect(() => {
-        console.log(application)
-    }, [application])
 
     const forSendApplication = (element) => {
         const sanitizedValue = element.replace(/ /g, "");

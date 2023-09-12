@@ -27,47 +27,83 @@ const ReviewsBlock = () => {
     return (
         <section id='clientReviews' className={styles.container}>
             <HeaderOnHomepage>Отзывы клиентов</HeaderOnHomepage>
-            <div className={styles.sliderTopWrapper}>
-                <Swiper
-                    slidesPerView={1}
-                    spaceBetween={0}
-                    loop={true}
-                    className={styles.sliderTop}
-                    breakpoints={{
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        1025: {
-                            slidesPerView: 2,
-                            spaceBetween: 32,
-                        },
-                        1440: {
-                            slidesPerView: 3,
-                            spaceBetween: 32,
-                        },
-                    }}
-                >
-                    {items && items.concat(items, items).filter((item) => item.type === 'photo').map((photoItem, index) =>
-                        <SwiperSlide key={index}>
-                            <div className={styles.slideContainer}>
-                                <div className={styles.imgWrapper}>
-                                    <img src={photoItem.image} alt="" />
-                                </div>
-                                <div className={razvorot ? styles.reviews : styles.reviewsHide}>
-                                    <span>{photoItem.title}</span>
-                                    <div>
-                                        <p>{photoItem.text}</p>
+            {items &&
+                <div className={styles.sliderTopWrapper}>
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={0}
+                        className={styles.sliderTop}
+                        breakpoints={{
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            1025: {
+                                slidesPerView: 2,
+                                spaceBetween: 32,
+                            },
+                            1440: {
+                                slidesPerView: 3,
+                                spaceBetween: 32,
+                            },
+                        }}
+                    >
+                        {items.filter((item) => item.type === 'photo').map((photoItem, index) =>
+                            <SwiperSlide key={index}>
+                                <div className={styles.slideContainer}>
+                                    <div className={styles.imgWrapper}>
+                                        <img src={photoItem.image} alt="" />
                                     </div>
+                                    <div className={razvorot ? styles.reviews : styles.reviewsHide}>
+                                        <span>{photoItem.title}</span>
+                                        <div>
+                                            <p>{photoItem.text}</p>
+                                        </div>
+                                    </div>
+                                    <button onClick={() => setRazvorot(!razvorot)}>{razvorot ? 'Свернуть' : 'Развернуть'}</button>
                                 </div>
-                                <button onClick={() => setRazvorot(!razvorot)}>{razvorot ? 'Свернуть' : 'Развернуть'}</button>
-                            </div>
-                        </SwiperSlide>
-                    )}
-                    <SlideChangeButton isNext={false} position={styles.positionPrev} />
-                    <SlideChangeButton isNext={true} position={styles.positionNext} />
-                </Swiper>
-            </div>
+                            </SwiperSlide>
+                        )}
+                        <SlideChangeButton isNext={false} position={styles.positionPrev} />
+                        <SlideChangeButton isNext={true} position={styles.positionNext} />
+                    </Swiper>
+                </div>
+            }
+
+            {items &&
+                <div className={styles.sliderBotWrapper}>
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={0}
+                        className={styles.sliderTop}
+                        breakpoints={{
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            1025: {
+                                slidesPerView: 2,
+                                spaceBetween: 32,
+                            },
+                            1440: {
+                                slidesPerView: 3,
+                                spaceBetween: 32,
+                            },
+                        }}
+                    >
+                        {items.filter((item) => item.type === 'video').map((videoItem, index) =>
+                            <SwiperSlide key={index}>
+                                <div className={styles.slideVideo}>
+                                    <p>{videoItem.title}</p>
+                                    <video src={videoItem.video} controls></video>
+                                </div>
+                            </SwiperSlide>
+                        )}
+                        <SlideChangeButton isNext={false} position={styles.positionPrev} />
+                        <SlideChangeButton isNext={true} position={styles.positionNext} />
+                    </Swiper>
+                </div>
+            }
         </section>
     )
 }

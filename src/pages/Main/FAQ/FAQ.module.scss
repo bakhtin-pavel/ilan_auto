@@ -1,0 +1,114 @@
+.container {
+    width: 100%;
+    padding: 20px 0 25px;
+    background: #000;
+
+    @media (min-width: 768px) {
+        padding: 30px 0;
+    }
+
+    @media (min-width: 1025px) {
+        padding: 40px 0;
+    }
+}
+
+.questionsBlock {
+    width: 100%;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    @media (min-width: 1025px) {
+        margin-top: 40px;
+        gap: 4px;
+    }
+}
+
+%baseItemBlock {
+    width: 100%;
+    padding: 12px 16px;
+    background: #000;
+    transition: all 300ms ease;
+
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    svg {
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+        padding: 12px 34px;
+        gap: 80px;
+
+        svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        padding: 24px 80px;
+
+        svg {
+            width: 64px;
+            height: 64px;
+        }
+    }
+}
+
+.itemBlock {
+    @extend %baseItemBlock;
+}
+
+.itemBlockActive {
+    @extend %baseItemBlock;
+    background: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(40px);
+}
+
+.question {
+    color: #FFF;
+    font-size: 20px;
+    line-height: 22px;
+
+    @media (min-width: 1025px) {
+        font-size: 32px;
+        line-height: normal;
+    }
+}
+
+%baseAnswerWrapper {
+    display: grid;
+    overflow: hidden;
+    transition: all 300ms ease;
+}
+
+.answerWrapper {
+    @extend %baseAnswerWrapper;
+    grid-template-rows: 1fr;
+    margin-top: 12px;
+}
+
+.answerHideWrapper {
+    @extend %baseAnswerWrapper;
+    grid-template-rows: 0fr;
+    margin-top: 0px;
+}
+
+.answer {
+    min-height: 0;
+    color: #000;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+
+    @media (min-width: 1025px) {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}

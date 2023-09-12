@@ -22,7 +22,7 @@ const Header = () => {
                 <Logo styles={styles.logo} mobleMenuClose={closeMobileMenu} />
                 {size.innerWidth > 1024
                     ? <>
-                        <Navbar />
+                        <Navbar mobleMenuClose={closeMobileMenu} />
                         <SocialLink />
                     </>
                     : <button
@@ -32,7 +32,7 @@ const Header = () => {
                 }
             </div>
             <div className={menuOpen ? styles.mobileMenuOpen : styles.mobileMenu}>
-                <Navbar />
+                <Navbar mobleMenuClose={closeMobileMenu} />
             </div>
         </>
     )

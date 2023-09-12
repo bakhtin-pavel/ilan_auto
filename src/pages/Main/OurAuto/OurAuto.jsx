@@ -23,7 +23,7 @@ const OurAuto = () => {
     }, [])
 
     return (
-        <section id='faq' className={styles.container}>
+        <section className={styles.container}>
             <HeaderOnHomepage>наши автомобили</HeaderOnHomepage>
             {items && <div className={styles.sliderWrapper}>
                 <Swiper
