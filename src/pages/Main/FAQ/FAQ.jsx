@@ -11,7 +11,8 @@ const FAQ = () => {
     const [items, setItems] = useState(null);
 
     async function fetchFAQ() {
-        const response = await axios.get('http://194.67.121.62:8005/v1/faq');
+        // const response = await axios.get('http://194.67.121.62:8005/v1/faq');
+        const response = await axios.get('https://api.ilanavto.ru/v1/faq');
         setItems(response.data.data);
         console.log(response.data.data);
     }

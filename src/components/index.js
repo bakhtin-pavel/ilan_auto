@@ -9,6 +9,9 @@ import ApplicationForm from './ApplicationForm';
 import HeaderOnHomepage from './HeaderOnHomepage';
 import OrderCarInput from './OrderCarInput';
 import Promotion from './Promotion';
+import Logo from './Logo';
+import SocialLink from './SocialLink';
+import PremiumSliderButton from './PremiumSliderButton';
 
 export {
     SlideChangeButton,
@@ -22,4 +25,7 @@ export {
     HeaderOnHomepage,
     OrderCarInput,
     Promotion,
+    Logo,
+    SocialLink,
+    PremiumSliderButton,
 };

@@ -76,7 +76,7 @@ const Advantages = () => {
                         </div>
                         <p>Низкая стоимость</p>
                     </div>
-                    <div className={styles.textBlock}>Автомобили из Японии и Южной Кореи всегда дешевле, чем авто со схожим состоянием на рынке России.</div>
+                    <div className={styles.textBlock}>Автомобили из Японии, Южной Кореи и Китая всегда дешевле, чем авто со схожим состоянием на рынке России.</div>
                 </div>
                 <div ref={decor3Ref} className={[styles.block, isVisible3 ? styles.anim : null].join(' ')}>
                     <div className={styles.headBlock}>

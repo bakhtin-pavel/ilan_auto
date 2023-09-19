@@ -32,9 +32,8 @@ const CatalogFilter = () => {
     const [sliderWidth, setSliderWidth] = useState(100);
 
     async function fetchFilters() {
-        const response = await axios.get(
-            "http://194.67.121.62:8005/v1/auto/filters"
-        );
+        // const response = await axios.get("http://194.67.121.62:8005/v1/auto/filters");
+        const response = await axios.get("https://api.ilanavto.ru/v1/auto/filters");
         setItemsFilters(response.data.data);
         console.log(response.data.data);
     }

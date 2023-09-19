@@ -27,7 +27,8 @@ const OrderCar = () => {
     async function submitApplication(e) {
         e.preventDefault();
 
-        await axios.post('http://194.67.121.62:8005/v1/auto/order', {
+        // await axios.post('http://194.67.121.62:8005/v1/auto/order', {
+        await axios.post('https://api.ilanavto.ru/v1/auto/order', {
             model: application.model,
             mark: application.marka,
             kmTo: forSendApplication(application.mileage),

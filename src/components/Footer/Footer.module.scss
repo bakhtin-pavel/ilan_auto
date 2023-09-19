@@ -31,6 +31,10 @@
         flex-direction: column;
         gap: 20px;
     }
+
+    @media (max-width: 1200px) {
+        gap: 20px;
+    }
 }
 
 %baseLink {

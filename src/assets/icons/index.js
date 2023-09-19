@@ -20,6 +20,12 @@ import { ReactComponent as Advantages3 } from "./advantages3.svg";
 import { ReactComponent as Advantages4 } from "./advantages4.svg";
 import { ReactComponent as Advantages5 } from "./advantages5.svg";
 import { ReactComponent as AuctionLeft } from "./auctionLeft.svg";
+import { ReactComponent as AboutTelegramIcon } from "./about_telegram_icon.svg";
+import { ReactComponent as PremiumCarMark } from "./premium_car_mark.svg";
+import { ReactComponent as SpeedIcon } from "./speed_icon.svg";
+import { ReactComponent as PowerIcon } from "./power_icon.svg";
+import { ReactComponent as VolumeIcon } from "./volume_icon.svg";
+import { ReactComponent as AccelerationIcon } from "./acceleration_icon.svg";
 // import { ReactComponent as AuctionRight } from "./auctionRight.svg";
 
 export {
@@ -45,5 +51,11 @@ export {
     Advantages4,
     Advantages5,
     AuctionLeft,
+    AboutTelegramIcon,
+    PremiumCarMark,
+    SpeedIcon,
+    PowerIcon,
+    VolumeIcon,
+    AccelerationIcon,
     // AuctionRight,
 };

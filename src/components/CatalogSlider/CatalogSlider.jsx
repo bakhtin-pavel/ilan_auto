@@ -228,7 +228,7 @@ const CatalogSlider = ({ item }) => {
                             </span>
                             {autoInfo.price2 && (
                                 <span className={styles.extraPrice}>
-                                    {formateDigitsString(autoInfo.price2) + " ₽"}
+                                    {"от " + formateDigitsString(autoInfo.price2) + " ₽"}
                                 </span>
                             )}
                         </div>

@@ -7,13 +7,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import { HeaderOnHomepage, SlideChangeButton } from '../../../components';
+import { useWindowSize } from '../../../hooks/useWindowSize';
 
 const ReviewsBlock = () => {
 
     const [items, setItems] = useState(null)
 
     async function fetchReviews() {
-        const response = await axios.get('http://194.67.121.62:8005/v1/reviews');
+        // const response = await axios.get('http://194.67.121.62:8005/v1/reviews');
+        const response = await axios.get('https://api.ilanavto.ru/v1/reviews');
         setItems(response.data.data);
         console.log(response.data.data);
     }
@@ -24,6 +26,8 @@ const ReviewsBlock = () => {
 
     const [razvorot, setRazvorot] = useState(false);
 
+    const { innerWidth } = useWindowSize();
+
     return (
         <section id='clientReviews' className={styles.container}>
             <HeaderOnHomepage>Отзывы клиентов</HeaderOnHomepage>
@@ -32,6 +36,7 @@ const ReviewsBlock = () => {
                     <Swiper
                         slidesPerView={1}
                         spaceBetween={0}
+                        // centerInsufficientSlides={true}
                         className={styles.sliderTop}
                         breakpoints={{
                             768: {
@@ -64,13 +69,29 @@ const ReviewsBlock = () => {
                                 </div>
                             </SwiperSlide>
                         )}
-                        <SlideChangeButton isNext={false} position={styles.positionPrev} />
-                        <SlideChangeButton isNext={true} position={styles.positionNext} />
+                        {items.filter((item) => item.type === 'photo').length > 3 && innerWidth > 1439 &&
+                            <>
+                                <SlideChangeButton isNext={false} position={styles.positionPrev} />
+                                <SlideChangeButton isNext={true} position={styles.positionNext} />
+                            </>
+                        }
+                        {items.filter((item) => item.type === 'photo').length > 2 && innerWidth > 767 &&
+                            <>
+                                <SlideChangeButton isNext={false} position={styles.positionPrev} />
+                                <SlideChangeButton isNext={true} position={styles.positionNext} />
+                            </>
+                        }
+                        {items.filter((item) => item.type === 'photo').length > 1 && innerWidth < 768 &&
+                            <>
+                                <SlideChangeButton isNext={false} position={styles.positionPrev} />
+                                <SlideChangeButton isNext={true} position={styles.positionNext} />
+                            </>
+                        }
                     </Swiper>
                 </div>
             }
 
-            {items &&
+            {items && items.filter((item) => item.type === 'video').length &&
                 <div className={styles.sliderBotWrapper}>
                     <Swiper
                         slidesPerView={1}
@@ -99,8 +120,24 @@ const ReviewsBlock = () => {
                                 </div>
                             </SwiperSlide>
                         )}
-                        <SlideChangeButton isNext={false} position={styles.positionPrev} />
-                        <SlideChangeButton isNext={true} position={styles.positionNext} />
+                        {items.filter((item) => item.type === 'photo').length > 1 && innerWidth < 768 &&
+                            <>
+                                <SlideChangeButton isNext={false} position={styles.positionPrev} />
+                                <SlideChangeButton isNext={true} position={styles.positionNext} />
+                            </>
+                        }
+                        {items.filter((item) => item.type === 'photo').length > 2 && innerWidth > 767 &&
+                            <>
+                                <SlideChangeButton isNext={false} position={styles.positionPrev} />
+                                <SlideChangeButton isNext={true} position={styles.positionNext} />
+                            </>
+                        }
+                        {items.filter((item) => item.type === 'photo').length > 3 && innerWidth > 1439 &&
+                            <>
+                                <SlideChangeButton isNext={false} position={styles.positionPrev} />
+                                <SlideChangeButton isNext={true} position={styles.positionNext} />
+                            </>
+                        }
                     </Swiper>
                 </div>
             }

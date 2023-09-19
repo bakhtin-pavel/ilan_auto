@@ -10,7 +10,8 @@ const SocialLink = () => {
     const [contacts, setContacts] = useState(null);
 
     async function fetchContacts() {
-        const response = await axios.get('http://194.67.121.62:8005/v1/contacts');
+        // const response = await axios.get('http://194.67.121.62:8005/v1/contacts');
+        const response = await axios.get('https://api.ilanavto.ru/v1/contacts');
         setContacts(response.data.data);
     }
 
@@ -27,7 +28,7 @@ const SocialLink = () => {
                     className={styles.whatsapp}
                 />
             </a>
-            <a href={contacts && contacts[4].value} target='_blank' rel="noreferrer">
+            {/* <a href={contacts && contacts[4].value} target='_blank' rel="noreferrer">
                 <Telegram
                     className={styles.telegram}
                 />
@@ -36,7 +37,7 @@ const SocialLink = () => {
                 <VK
                     className={styles.vk}
                 />
-            </a>
+            </a> */}
         </div>
     )
 }

@@ -30,7 +30,8 @@ const Catalog = () => {
     const topRef = useRef(null);
 
     async function fetchAuto() {
-        const response = await axios.get('http://194.67.121.62:8005/v1/auto', {
+        // const response = await axios.get('http://194.67.121.62:8005/v1/auto', {
+        const response = await axios.get('https://api.ilanavto.ru/v1/auto', {
             params: {
                 search: filterSearch,
                 country: filterCountry,
@@ -53,7 +54,7 @@ const Catalog = () => {
 
     const handlePageChange = (page) => {
         dispatch(changePages(page));
-        topRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        topRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     const { innerWidth } = useWindowSize();
@@ -64,14 +65,17 @@ const Catalog = () => {
             <div ref={topRef} className={styles.catalogWrapper}>
                 <div className={styles.bg_blur} />
                 <CatalogFilter />
-                {autoItems.length && <CatalogSlider item={autoItems[activeAuto]} />}
+                {autoItems.length && !isMobile && <CatalogSlider item={autoItems[activeAuto]} />}
             </div>
             {!isMobile && (
                 <div className={styles.catalogListWrapper}>
                     {autoItems.length && autoItems.map((item, index) => (
                         <CatalogItem
                             key={item.id}
-                            onClick={() => setActiveAuto(index)}
+                            onClick={() => {
+                                setActiveAuto(index);
+                                topRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }}
                             isActive={index === activeAuto ? true : false}
                             model={item.model}
                             mark={item.mark}

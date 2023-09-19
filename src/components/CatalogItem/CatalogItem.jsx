@@ -35,7 +35,7 @@ const CatalogItem = ({ model, mark, image, oldPrice, extraPrice, onClick, isActi
                     </span>
                     {extraPrice && (
                         <span className={styles.extraPrice}>
-                            {formateDigitsString(extraPrice) + " ₽"}
+                            {"от " + formateDigitsString(extraPrice) + " ₽"}
                         </span>
                     )}
                 </div>

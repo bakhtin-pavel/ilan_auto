@@ -13,7 +13,8 @@ const OurAuto = () => {
     const [items, setItems] = useState(null)
 
     async function fetchOurAuto() {
-        const response = await axios.get('http://194.67.121.62:8005/v1/auto/company');
+        // const response = await axios.get('http://194.67.121.62:8005/v1/auto/company');
+        const response = await axios.get('https://api.ilanavto.ru/v1/auto/company');
         setItems(response.data.data);
         console.log(response.data.data);
     }
@@ -36,9 +37,13 @@ const OurAuto = () => {
                             slidesPerView: 3,
                             spaceBetween: 20,
                         },
-                        1025: {
+                        950: {
                             slidesPerView: 4,
-                            spaceBetween: 32,
+                            spaceBetween: 25,
+                        },
+                        1200: {
+                            slidesPerView: 5,
+                            spaceBetween: 30,
                         },
                     }}
                 >

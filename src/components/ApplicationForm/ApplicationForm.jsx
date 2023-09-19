@@ -16,7 +16,8 @@ const ApplicationForm = ({ close }) => {
     async function submitApplication(e) {
         e.preventDefault();
 
-        await axios.post('http://194.67.121.62:8005/v1/feedback', {
+        // await axios.post('http://194.67.121.62:8005/v1/feedback', {
+        await axios.post('https://api.ilanavto.ru/v1/feedback', {
             phone: application.phone,
             username: application.name,
             telegram: application.telegram,

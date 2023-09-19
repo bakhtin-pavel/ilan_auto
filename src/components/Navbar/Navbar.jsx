@@ -11,7 +11,7 @@ const Navbar = ({ mobleMenuClose }) => {
     const navigate = useNavigate();
 
     const currentPath = '/';
-    const idArray = ['carOrder', 'clientReviews', 'faq', 'aboutUs', 'contacts'];
+    const idArray = ['carOrder', 'clientReviews', 'faq', 'contacts'];
     const activeAnchor = useElementVisible(currentPath, idArray);
 
     const handleClickAnchor = (id, e) => {
@@ -38,21 +38,21 @@ const Navbar = ({ mobleMenuClose }) => {
                 onClick={() => mobleMenuClose()}
                 className={({ isActive }) => isActive ? styles.activeLink : styles.link}
             >
-                Каталог
+                Машины в наличии
             </NavLink>
             <a href='#carOrder' onClick={(e) => handleClickAnchor('carOrder', e)} className={activeAnchor === 'carOrder' ? styles.activeLink : styles.link}>Заказ авто</a>
             <a href='#clientReviews' onClick={(e) => handleClickAnchor('clientReviews', e)} className={activeAnchor === 'clientReviews' ? styles.activeLink : styles.link}>Отзывы</a>
             <a href='#faq' onClick={(e) => handleClickAnchor('faq', e)} className={activeAnchor === 'faq' ? styles.activeLink : styles.link}>FAQ</a>
             {/* <a href='#team' onClick={(e) => handleClickAnchor('team', e)} className={activeAnchor === 'team' ? styles.activeLink : styles.link}>Команда</a> */}
-            <a href='#aboutUs' onClick={(e) => handleClickAnchor('aboutUs', e)} className={activeAnchor === 'aboutUs' ? styles.activeLink : styles.link}>О нас</a>
+            {/* <a href='#aboutUs' onClick={(e) => handleClickAnchor('aboutUs', e)} className={activeAnchor === 'aboutUs' ? styles.activeLink : styles.link}>О нас</a> */}
             <a href='#contacts' onClick={() => mobleMenuClose()} className={activeAnchor === 'contacts' ? styles.activeLink : styles.link}>Контакты</a>
-            {/* <NavLink
+            <NavLink
                 to='/premium_car'
                 onClick={() => mobleMenuClose()}
                 className={({ isActive }) => isActive ? styles.activeLink : styles.link}
             >
                 Премиум авто
-            </NavLink> */}
+            </NavLink>
         </nav>
     )
 }
