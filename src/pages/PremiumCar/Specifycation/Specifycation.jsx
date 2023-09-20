@@ -44,9 +44,33 @@ const Specifycation = () => {
                         <SpeedIcon />
                         <span>Предельная скорость</span>
                         <div className={styles.figureSpec}>
-                            <div style={{ width: calculateProgressLineWidth(0, 250, 400) + "%" }}></div>
+                            <div style={{ width: calculateProgressLineWidth(90, 250, 350) + "%" }}></div>
                         </div>
-                        <p><span>250</span>&nbsp;км/ч</p>
+                        <p><span>250&nbsp;</span>км/ч</p>
+                    </div>
+                    <div>
+                        <PowerIcon />
+                        <span>Мощность двигателя</span>
+                        <div className={styles.figureSpec}>
+                            <div style={{ width: calculateProgressLineWidth(50, 460, 800) + "%" }}></div>
+                        </div>
+                        <p><span>460&nbsp;</span>л.с.</p>
+                    </div>
+                    <div>
+                        <VolumeIcon />
+                        <span>Объем двигателя</span>
+                        <div className={styles.figureSpec}>
+                            <div style={{ width: calculateProgressLineWidth(50, 1480, 2000) + "%" }}></div>
+                        </div>
+                        <p><span>1480&nbsp;</span>см³</p>
+                    </div>
+                    <div>
+                        <AccelerationIcon />
+                        <span>Разгон до 100 км/ч</span>
+                        <div className={styles.figureSpec}>
+                            <div style={{ width: calculateProgressLineWidth(2, 3.3, 10) + "%" }}></div>
+                        </div>
+                        <p><span>3,3&nbsp;</span>сек.</p>
                     </div>
                 </div>
             </div>

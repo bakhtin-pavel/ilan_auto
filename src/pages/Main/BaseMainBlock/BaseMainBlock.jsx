@@ -85,11 +85,11 @@ const BaseMainBlock = () => {
 
     const size = useWindowSize();
     const [modal, setModal] = useState(false);
-    const [isVideo, setIsVideo] = useState(true);
+    const [isVideo, setIsVideo] = useState(false);
 
-    const handleVideoEnd = () => {
-        setIsVideo(false);
-    };
+    // const handleVideoEnd = () => {
+    //     setIsVideo(false);
+    // };
 
     return (
         <div className={styles.container}>
@@ -125,7 +125,7 @@ const BaseMainBlock = () => {
                         </CSSTransition>
                     )}
 
-                    {itemsBanner && (
+                    {/* {itemsBanner && (
                         <CSSTransition
                             in={isVideo}
                             timeout={900}
@@ -147,7 +147,7 @@ const BaseMainBlock = () => {
                                 ></video>
                             </div>
                         </CSSTransition>
-                    )}
+                    )} */}
 
                     {itemsBanner && (
                         <CSSTransition
@@ -188,7 +188,7 @@ const BaseMainBlock = () => {
                         </CSSTransition>
                     )}
                     <div className={styles.rightGradient}></div>
-                    <div className={styles.buttonChangeContainer}>
+                    {/* <div className={styles.buttonChangeContainer}>
                         <button
                             style={isVideo ? null : { background: "#fff" }}
                             onClick={() => setIsVideo(false)}
@@ -197,7 +197,7 @@ const BaseMainBlock = () => {
                             style={isVideo ? { background: "#fff" } : null}
                             onClick={() => setIsVideo(true)}
                         ></button>
-                    </div>
+                    </div> */}
 
                     {size.innerWidth < 768 && itemsBanner && (
                         <Promotion
