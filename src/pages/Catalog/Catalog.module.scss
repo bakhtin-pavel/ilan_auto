@@ -22,10 +22,17 @@
                 rgba(0, 0, 0, 0) 48.55%);
 
         backdrop-filter: blur(3px);
+
+        @media (max-width: 767px) {
+            background: rgba(0, 0, 0, 0.40);
+            backdrop-filter: blur(10px);
+        }
     }
 
     @media (max-width: 767px) {
         margin-top: 48px;
+        background-size: auto;
+        background-position: top;
     }
 }
 

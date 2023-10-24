@@ -20,7 +20,7 @@ const Header = () => {
         <>
             <div className={styles.container}>
                 <Logo styles={styles.logo} mobleMenuClose={closeMobileMenu} />
-                {size.innerWidth > 1024
+                {size.innerWidth > 1150
                     ? <>
                         <Navbar mobleMenuClose={closeMobileMenu} />
                         <SocialLink />

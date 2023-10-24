@@ -6,8 +6,6 @@ import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { CSSTransition } from "react-transition-group";
-
 import mainTopImg from "../../../assets/img/main_top_img.png";
 import mainTopImgTablet from "../../../assets/img/main_top_img_tablet.png";
 import mainTopImgMobile from "../../../assets/img/main_top_img_mobile.png";
@@ -17,53 +15,26 @@ import { useWindowSize } from "../../../hooks/useWindowSize";
 import {
     SlideChangeButton,
     OrderButton,
-    ModalWindow,
-    ApplicationForm,
     Promotion,
 } from "../../../components";
 
-const BaseMainBlock = () => {
+const BaseMainBlock = ({ onClickApplication }) => {
+    // Получение баннеров
     const [itemsBanner, setItemsBanner] = useState(null);
-    const [timerDate, setTimerDate] = useState(null);
 
     async function fetchBanners() {
         // const response = await axios.get("http://194.67.121.62:8005/v1/banners");
         const response = await axios.get("https://api.ilanavto.ru/v1/banners");
         setItemsBanner(response.data.data);
-        setTimerDate(new Date(response.data.data[0].timer));
         console.log(response.data.data);
     }
 
     useEffect(() => {
         fetchBanners();
     }, []);
+    // Получение баннеров конец
 
-    const [timeLeft, setTimeLeft] = useState('00:00:00:00');
-
-    useEffect(() => {
-
-        const timer = setInterval(() => {
-            if (timerDate) {
-                const now = new Date().getTime();
-                const distance = timerDate.getTime() - now;
-
-                const days = Math.floor(distance / (86400000));
-                const hours = Math.floor((distance % (86400000)) / (3600000));
-                const minutes = Math.floor((distance % (3600000)) / (60000));
-                const seconds = Math.floor((distance % (60000)) / 1000);
-
-                setTimeLeft(`${days > 9 ? days : `0${days}`}:${hours > 9 ? hours : `0${hours}`}:${minutes > 9 ? minutes : `0${minutes}`}:${seconds > 9 ? seconds : `0${seconds}`}`);
-
-                if (distance < 0) {
-                    clearInterval(timer);
-                    setTimeLeft('00:00:00:00');
-                }
-            }
-        }, 1000);
-
-        return () => clearInterval(timer);
-    }, [timerDate]);
-
+    // Получение популярных авто
     const [items, setItems] = useState(null);
 
     async function fetchPopAuto() {
@@ -76,20 +47,15 @@ const BaseMainBlock = () => {
     useEffect(() => {
         fetchPopAuto();
     }, []);
+    // Получение популярных авто конец
+
+    const size = useWindowSize();
 
     const formattedNumberValue = (el) => {
         const str = String(el);
         const formattedValue = str.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         return formattedValue;
     };
-
-    const size = useWindowSize();
-    const [modal, setModal] = useState(false);
-    const [isVideo, setIsVideo] = useState(false);
-
-    // const handleVideoEnd = () => {
-    //     setIsVideo(false);
-    // };
 
     return (
         <div className={styles.container}>
@@ -106,106 +72,88 @@ const BaseMainBlock = () => {
                     className={styles.topBlockBackgroundImg}
                 />
                 <div className={styles.topBlock}>
-                    {size.innerWidth > 767 && itemsBanner && (
-                        <CSSTransition
-                            in={!isVideo}
-                            timeout={600}
-                            unmountOnExit
-                            classNames={{
-                                enter: styles.promotionEnter,
-                                enterActive: styles.promotionEnterActive,
-                                exit: styles.promotionExit,
-                                exitActive: styles.promotionExitActive,
-                            }}
-                        >
-                            <Promotion
-                                timer={timeLeft}
-                                orderClickButton={setModal}
-                            />
-                        </CSSTransition>
-                    )}
 
-                    {/* {itemsBanner && (
-                        <CSSTransition
-                            in={isVideo}
-                            timeout={900}
-                            unmountOnExit
-                            classNames={{
-                                enter: styles.videoEnter,
-                                enterActive: styles.videoEnterActive,
-                                exit: styles.videoExit,
-                                exitActive: styles.videoExitActive,
-                            }}
-                        >
-                            <div className={styles.videoTopWrapper}>
-                                <video
-                                    src={itemsBanner[1].video}
-                                    autoPlay
-                                    muted
-                                    onEnded={handleVideoEnd}
-                                    className={styles.videoTop}
-                                ></video>
+                    {itemsBanner
+                        ? itemsBanner.length === 1
+                            ? <div className={styles.slideInTopBlock}>
+
+                                {size.innerWidth > 767 &&
+                                    <Promotion
+                                        timerDate={new Date(itemsBanner[0].timer.replace(' ', 'T'))}
+                                        orderClickButton={onClickApplication}
+                                    />
+                                }
+
+                                <div
+                                    className={styles.mainCarName}
+                                    dangerouslySetInnerHTML={{ __html: itemsBanner[0].title }}
+                                ></div>
+
+                                <img
+                                    src={itemsBanner[0].image}
+                                    alt=""
+                                    className={styles.topBlockCar}
+                                />
+
+                                {size.innerWidth < 768 && itemsBanner &&
+                                    <Promotion
+                                        timerDate={new Date(itemsBanner[0].timer.replace(' ', 'T'))}
+                                        orderClickButton={onClickApplication}
+                                    />
+                                }
+
                             </div>
-                        </CSSTransition>
-                    )} */}
 
-                    {itemsBanner && (
-                        <CSSTransition
-                            in={!isVideo}
-                            timeout={600}
-                            unmountOnExit
-                            classNames={{
-                                enter: styles.carNameEnter,
-                                enterActive: styles.carNameEnterActive,
-                                exit: styles.carNameExit,
-                                exitActive: styles.carNameExitActive,
-                            }}
-                        >
-                            <div
-                                className={styles.mainCarName}
-                                dangerouslySetInnerHTML={{ __html: itemsBanner[0].title }}
-                            ></div>
-                        </CSSTransition>
-                    )}
+                            : <Swiper
+                                slidesPerView={1}
+                                loop={true}
+                                speed={700}
+                                className={styles.sliderAkcii}
+                            >
+                                {itemsBanner.map((item, index) => (
+                                    <SwiperSlide key={index}>
+                                        {({ isActive }) => (
+                                            <div className={styles.slideInTopBlock}>
 
-                    {itemsBanner && (
-                        <CSSTransition
-                            in={!isVideo}
-                            timeout={600}
-                            unmountOnExit
-                            classNames={{
-                                enter: styles.carTopEnter,
-                                enterActive: styles.carTopEnterActive,
-                                exit: styles.carTopExit,
-                                exitActive: styles.carTopExitActive,
-                            }}
-                        >
-                            <img
-                                src={itemsBanner[0].image}
-                                alt=""
-                                className={styles.topBlockCar}
-                            />
-                        </CSSTransition>
-                    )}
+                                                {size.innerWidth > 767 &&
+                                                    <Promotion
+                                                        timerDate={new Date(item.timer.replace(' ', 'T'))}
+                                                        orderClickButton={onClickApplication}
+                                                    />
+                                                }
+
+                                                <div
+                                                    className={styles.mainCarName}
+                                                    dangerouslySetInnerHTML={{ __html: item.title }}
+                                                ></div>
+
+                                                <img
+                                                    src={item.image}
+                                                    alt=""
+                                                    className={isActive ? styles.topBlockCar : [styles.topBlockCar, styles.commonCar].join(' ')}
+                                                />
+
+                                                {size.innerWidth < 768 && itemsBanner &&
+                                                    <Promotion
+                                                        timerDate={new Date(item.timer.replace(' ', 'T'))}
+                                                        orderClickButton={onClickApplication}
+                                                    />
+                                                }
+
+                                            </div>
+                                        )}
+                                    </SwiperSlide>
+                                ))}
+                                {/* <div className={styles.buttonsAkcii}> */}
+                                <SlideChangeButton isNext={false} position={styles.buttonPositionPrev} />
+                                <SlideChangeButton isNext={true} position={styles.buttonPositionNext} />
+                                {/* </div> */}
+                            </Swiper>
+                        : null
+                    }
+
                     <div className={styles.rightGradient}></div>
-                    {/* <div className={styles.buttonChangeContainer}>
-                        <button
-                            style={isVideo ? null : { background: "#fff" }}
-                            onClick={() => setIsVideo(false)}
-                        ></button>
-                        <button
-                            style={isVideo ? { background: "#fff" } : null}
-                            onClick={() => setIsVideo(true)}
-                        ></button>
-                    </div> */}
 
-                    {size.innerWidth < 768 && itemsBanner && (
-                        <Promotion
-                            timer={timeLeft}
-                            orderClickButton={setModal}
-                            isMobileVideo={isVideo}
-                        />
-                    )}
                 </div>
             </div>
 
@@ -266,11 +214,8 @@ const BaseMainBlock = () => {
             </div>
 
             <div className={styles.orderButtonContainer}>
-                <OrderButton onClick={() => setModal(true)}>Заказать</OrderButton>
+                <OrderButton onClick={onClickApplication}>Заказать</OrderButton>
             </div>
-            <ModalWindow visible={modal} setVisible={setModal}>
-                <ApplicationForm close={setModal} />
-            </ModalWindow>
         </div>
     );
 };

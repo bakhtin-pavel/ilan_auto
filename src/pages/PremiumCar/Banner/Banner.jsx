@@ -1,64 +1,72 @@
 import React from 'react';
 import styles from './Banner.module.scss';
 
-import premiumCar from '../../../assets/img/premium_car.jfif';
+// import premiumCar from '../../../assets/img/premium_car.jpg';
 
 import { useWindowSize } from "../../../hooks/useWindowSize";
 
 import { AccelerationIcon, PowerIcon, PremiumCarMark, SpeedIcon, VolumeIcon } from '../../../assets/icons';
 
-const Banner = () => {
+const Banner = ({ photo, mark, model, slogan, speed, power, volume, acceleration }) => {
 
     const { innerWidth } = useWindowSize();
 
     return (
         <section className={styles.container}>
-            <img src={premiumCar} alt="" className={styles.bannerImg} />
+            <img src={photo} alt="" className={styles.bannerImg} />
             <div className={styles.caption}>
-                <PremiumCarMark />
+                {/* <PremiumCarMark /> */}
                 <div>
-                    <p className={styles.marka}>BMW</p>
-                    <p className={styles.model}>M5 Competition</p>
-                    <p className={styles.slogan}>Два мира — один автомобиль.</p>
+                    {mark && <p className={styles.marka}>{mark}</p>}
+                    {model && <p className={styles.model}>{model}</p>}
+                    {slogan && <p className={styles.slogan}>{slogan}</p>}
                 </div>
             </div>
             <div className={styles.characteristics}>
-                <div>
+                {speed &&
                     <div>
-                        <SpeedIcon />
-                        {innerWidth > 767 &&
-                            <p>Предельная скорость</p>
-                        }
+                        <div>
+                            <SpeedIcon />
+                            {innerWidth > 767 &&
+                                <p>Предельная скорость</p>
+                            }
+                        </div>
+                        <p><span>{speed}</span> км/ч</p>
                     </div>
-                    <p><span>250</span> км/ч</p>
-                </div>
-                <div>
+                }
+                {power &&
                     <div>
-                        <PowerIcon />
-                        {innerWidth > 767 &&
-                            <p>Мощность двигателя</p>
-                        }
+                        <div>
+                            <PowerIcon />
+                            {innerWidth > 767 &&
+                                <p>Мощность двигателя</p>
+                            }
+                        </div>
+                        <p><span>{power}</span> л.с.</p>
                     </div>
-                    <p><span>460</span> л.с.</p>
-                </div>
-                <div>
+                }
+                {volume &&
                     <div>
-                        <VolumeIcon />
-                        {innerWidth > 767 &&
-                            <p>Объем двигателя</p>
-                        }
+                        <div>
+                            <VolumeIcon />
+                            {innerWidth > 767 &&
+                                <p>Объем двигателя</p>
+                            }
+                        </div>
+                        <p><span>{volume.slice(0, -3)}</span> см³</p>
                     </div>
-                    <p><span>1480</span> см³</p>
-                </div>
-                <div>
+                }
+                {acceleration &&
                     <div>
-                        <AccelerationIcon />
-                        {innerWidth > 767 &&
-                            <p>Разгон до 100 км/ч</p>
-                        }
+                        <div>
+                            <AccelerationIcon />
+                            {innerWidth > 767 &&
+                                <p>Разгон до 100 км/ч</p>
+                            }
+                        </div>
+                        <p><span>{acceleration.slice(0, -1)}</span> сек.</p>
                     </div>
-                    <p><span>3,3</span> сек.</p>
-                </div>
+                }
             </div>
         </section>
     )

@@ -40,6 +40,7 @@ const Navbar = ({ mobleMenuClose }) => {
             >
                 Машины в наличии
             </NavLink>
+            <a href='https://auc.ilanavto.ru/' target='_blank' rel="noreferrer" className={styles.link}>Аукционы Японии</a>
             <a href='#carOrder' onClick={(e) => handleClickAnchor('carOrder', e)} className={activeAnchor === 'carOrder' ? styles.activeLink : styles.link}>Заказ авто</a>
             <a href='#clientReviews' onClick={(e) => handleClickAnchor('clientReviews', e)} className={activeAnchor === 'clientReviews' ? styles.activeLink : styles.link}>Отзывы</a>
             <a href='#faq' onClick={(e) => handleClickAnchor('faq', e)} className={activeAnchor === 'faq' ? styles.activeLink : styles.link}>FAQ</a>

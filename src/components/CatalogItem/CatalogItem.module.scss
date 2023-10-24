@@ -1,114 +1,138 @@
 .item {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .imageWrapper {
-  width: 100%;
-  height: 100%;
-  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 8% 100%, 0 82%);
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 8% 100%, 0 82%);
 
-  background-color: red;
+    // background-color: red;
 
-  position: relative;
+    position: relative;
 }
 
 .fakeItemImage {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  opacity: 0;
+    opacity: 1;
 }
 
 .itemImage {
-  position: absolute;
-  top: 0px;
-  left: 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 8% 100%, 0 82%);
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 8% 100%, 0 82%);
 
-  &.active {
-    top: 2px;
-    left: 2px;
+    &.active {
+        top: 2px;
+        left: 2px;
 
-    width: calc(100% - 4px);
-    height: calc(100% - 4px);
-  }
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+    }
 }
 
 .title {
-  display: flex;
-  flex-direction: column;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-  padding: 8px 20px;
+    padding: 8px 20px;
 
-  background-color: #404040;
+    background-color: #404040;
 
-  .model {
-    color: #a3a3a3;
-    font-size: 16px;
-    font-weight: 500;
-  }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 2px solid transparent;
+        transition: all 200ms ease;
+    }
 
-  .mark {
-    color: #fff;
-    font-size: 24px;
-    font-weight: 500;
-  }
+    .model {
+        color: #a3a3a3;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .mark {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 500;
+    }
+}
+
+.titleActive {
+    &::after {
+        border: 2px solid #e41f1c;
+    }
+}
+
+.item:hover .title {
+    &::after {
+        border: 2px solid #e41f1c;
+    }
 }
 
 .price {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 
-  margin-top: 17px;
+    margin-top: 17px;
 
-  @media (max-width: 1000px) {
-    flex-direction: column;
-    align-items: flex-end;
-  }
+    @media (max-width: 1000px) {
+        flex-direction: column;
+        align-items: flex-end;
+    }
 }
 
 .priceName {
-  color: #a3a3a3;
-  font-size: 16px;
-  font-weight: 300;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: 300;
 
-  @media (max-width: 1000px) {
-    margin-bottom: 10px;
-  }
+    @media (max-width: 1000px) {
+        margin-bottom: 10px;
+    }
 }
 
 .priceBlock {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  .priceValue {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: right;
+    .priceValue {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: right;
 
-    &.hasExtraPrice {
-      color: #7f7f7f;
-      font-size: 20px;
-      font-weight: 500;
+        &.hasExtraPrice {
+            color: #7f7f7f;
+            font-size: 20px;
+            font-weight: 500;
 
-      text-decoration: line-through;
-      text-decoration-color: #e41f1c;
+            text-decoration: line-through;
+            text-decoration-color: #e41f1c;
+        }
     }
-  }
 
-  .extraPrice {
-    color: #e41f1c;
-    font-size: 24px;
-    font-weight: 500;
-    text-align: right;
-  }
+    .extraPrice {
+        color: #e41f1c;
+        font-size: 24px;
+        font-weight: 500;
+        text-align: right;
+    }
 }

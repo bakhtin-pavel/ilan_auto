@@ -55,6 +55,16 @@
     height: 24px;
     cursor: pointer;
 
+    rect {
+        transition: all 200ms ease;
+    }
+
+    &:hover {
+        rect {
+            fill: #E41F1C;
+        }
+    }
+
     @media (max-width: 1024px) {
         top: 35px;
         right: 35px;

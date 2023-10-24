@@ -6,21 +6,24 @@ import { classnames, formateDigitsString } from "../../utils";
 const CatalogItem = ({ model, mark, image, oldPrice, extraPrice, onClick, isActive }) => {
     return (
         <div className={styles.item} onClick={onClick}>
-            <div className={styles.title}>
+            <div className={classnames([
+                styles.title,
+                [styles.titleActive, isActive], // Вместо boolean поставить условие активности карточки
+            ])}>
                 <p className={styles.model}>{model}</p>
                 <p className={styles.mark}>{mark}</p>
             </div>
             <div className={styles.imageWrapper}>
                 <img className={styles.fakeItemImage} src={image} alt="" />
 
-                <img
+                {/* <img
                     className={classnames([
                         styles.itemImage,
                         [styles.active, isActive], // Вместо boolean поставить условие активности карточки
                     ])}
                     src={image}
                     alt=""
-                />
+                /> */}
             </div>
             <div className={styles.price}>
                 <span className={styles.priceName}>цена без доставки</span>

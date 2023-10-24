@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './OurAuto.module.scss';
 
 import axios from 'axios';
@@ -23,11 +23,37 @@ const OurAuto = () => {
         fetchOurAuto()
     }, [])
 
+    const listRef = useRef(null);
+    const [currentVideo, setCurrentVideo] = useState(null);
+
+    function pauseToIndex(index) {
+        const listNode = listRef.current;
+
+        if (currentVideo) {
+            if (index === undefined) {
+                currentVideo.pause();
+                setCurrentVideo(false);
+                return
+            }
+            const videoNode = listNode.querySelectorAll('.pause')[index];
+            if (currentVideo === videoNode) {
+                return
+            }
+            currentVideo.pause();
+            setCurrentVideo(videoNode);
+            return
+        }
+        if (index === undefined) return;
+        const videoNode = listNode.querySelectorAll('.pause')[index];
+        setCurrentVideo(videoNode);
+    }
+
     return (
         <section className={styles.container}>
             <HeaderOnHomepage>наши автомобили</HeaderOnHomepage>
             {items && <div className={styles.sliderWrapper}>
                 <Swiper
+                    ref={listRef}
                     slidesPerView={2}
                     spaceBetween={8}
                     loop={false}
@@ -51,12 +77,17 @@ const OurAuto = () => {
                         <SwiperSlide key={index} style={{ height: 'auto' }}>
                             <div className={styles.slideContainer}>
                                 <p>{item.name}</p>
-                                <video src={item.video} controls></video>
+                                <video
+                                    className='pause'
+                                    src={item.video}
+                                    controls
+                                    onPlay={() => pauseToIndex(index)}
+                                ></video>
                             </div>
                         </SwiperSlide>
                     )}
-                    <SlideChangeButton isNext={false} position={styles.positionPrev} />
-                    <SlideChangeButton isNext={true} position={styles.positionNext} />
+                    <SlideChangeButton isNext={false} position={styles.positionPrev} pause={() => pauseToIndex()} />
+                    <SlideChangeButton isNext={true} position={styles.positionNext} pause={() => pauseToIndex()} />
                 </Swiper>
             </div>
             }

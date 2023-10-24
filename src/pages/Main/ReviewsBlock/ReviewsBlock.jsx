@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './ReviewsBlock.module.scss';
 
 import axios from 'axios';
@@ -27,6 +27,31 @@ const ReviewsBlock = () => {
     const [razvorot, setRazvorot] = useState(false);
 
     const { innerWidth } = useWindowSize();
+
+    const listRef = useRef(null);
+    const [currentVideo, setCurrentVideo] = useState(null);
+
+    function pauseToIndex(index) {
+        const listNode = listRef.current;
+
+        if (currentVideo) {
+            if (index === undefined) {
+                currentVideo.pause();
+                setCurrentVideo(false);
+                return
+            }
+            const videoNode = listNode.querySelectorAll('.pause')[index];
+            if (currentVideo === videoNode) {
+                return
+            }
+            currentVideo.pause();
+            setCurrentVideo(videoNode);
+            return
+        }
+        if (index === undefined) return;
+        const videoNode = listNode.querySelectorAll('.pause')[index];
+        setCurrentVideo(videoNode);
+    }
 
     return (
         <section id='clientReviews' className={styles.container}>
@@ -94,6 +119,7 @@ const ReviewsBlock = () => {
             {items && items.filter((item) => item.type === 'video').length &&
                 <div className={styles.sliderBotWrapper}>
                     <Swiper
+                        ref={listRef}
                         slidesPerView={1}
                         spaceBetween={0}
                         className={styles.sliderTop}
@@ -116,26 +142,31 @@ const ReviewsBlock = () => {
                             <SwiperSlide key={index}>
                                 <div className={styles.slideVideo}>
                                     <p>{videoItem.title}</p>
-                                    <video src={videoItem.video} controls></video>
+                                    <video
+                                        src={videoItem.video}
+                                        controls
+                                        className='pause'
+                                        onPlay={() => pauseToIndex(index)}
+                                    ></video>
                                 </div>
                             </SwiperSlide>
                         )}
                         {items.filter((item) => item.type === 'photo').length > 1 && innerWidth < 768 &&
                             <>
-                                <SlideChangeButton isNext={false} position={styles.positionPrev} />
-                                <SlideChangeButton isNext={true} position={styles.positionNext} />
+                                <SlideChangeButton isNext={false} position={styles.positionPrev} pause={() => pauseToIndex()} />
+                                <SlideChangeButton isNext={true} position={styles.positionNext} pause={() => pauseToIndex()} />
                             </>
                         }
                         {items.filter((item) => item.type === 'photo').length > 2 && innerWidth > 767 &&
                             <>
-                                <SlideChangeButton isNext={false} position={styles.positionPrev} />
-                                <SlideChangeButton isNext={true} position={styles.positionNext} />
+                                <SlideChangeButton isNext={false} position={styles.positionPrev} pause={() => pauseToIndex()} />
+                                <SlideChangeButton isNext={true} position={styles.positionNext} pause={() => pauseToIndex()} />
                             </>
                         }
                         {items.filter((item) => item.type === 'photo').length > 3 && innerWidth > 1439 &&
                             <>
-                                <SlideChangeButton isNext={false} position={styles.positionPrev} />
-                                <SlideChangeButton isNext={true} position={styles.positionNext} />
+                                <SlideChangeButton isNext={false} position={styles.positionPrev} pause={() => pauseToIndex()} />
+                                <SlideChangeButton isNext={true} position={styles.positionNext} pause={() => pauseToIndex()} />
                             </>
                         }
                     </Swiper>

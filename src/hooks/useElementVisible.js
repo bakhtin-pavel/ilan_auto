@@ -22,7 +22,7 @@ export default function useElementVisible(currentPath, idArray) {
                 sections.forEach((id) => {
                     const sectionElement = document.getElementById(id);
                     const { top, bottom } = sectionElement.getBoundingClientRect();
-                    const isInView = top < (window.innerHeight * 0.8) && bottom > 100;
+                    const isInView = top < (window.innerHeight * 0.5) && bottom > (window.innerHeight * 0.5);
 
                     if (isInView && sectionVisible !== id) {
                         setSectionVisible(id);

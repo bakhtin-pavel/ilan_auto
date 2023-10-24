@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './OrderCar.module.scss';
 
 import axios from 'axios';
@@ -23,46 +23,56 @@ const OrderCar = () => {
         telegram: false,
     });
     const [errorCheck, setErrorCheck] = useState('');
+    const [isPhoneValid, setPhoneValid] = useState(true);
+
+    useEffect(() => {
+        if (!application.phone) {
+            setErrorCheck('')
+        }
+    }, [application.phone])
 
     async function submitApplication(e) {
         e.preventDefault();
 
-        // await axios.post('http://194.67.121.62:8005/v1/auto/order', {
-        await axios.post('https://api.ilanavto.ru/v1/auto/order', {
-            model: application.model,
-            mark: application.marka,
-            kmTo: forSendApplication(application.mileage),
-            priceFrom: forSendApplication(application.budgetFrom),
-            priceTo: forSendApplication(application.budgetUpTo),
-            yearFrom: forSendApplication(application.yearFrom),
-            yearTo: forSendApplication(application.yearUpTo),
-            fullName: application.name,
-            phone: application.phone,
-            telegram: application.telegram,
-            whatsapp: application.whatsapp,
-        })
-            .then(function (response) {
-                console.log(response);
-                setErrorCheck('')
-                setApplication({
-                    ...application,
-                    marka: '',
-                    model: '',
-                    mileage: '',
-                    budgetFrom: '',
-                    budgetUpTo: '',
-                    yearFrom: '',
-                    yearUpTo: '',
-                    name: '',
-                    phone: '',
-                    whatsapp: false,
-                    telegram: false,
-                })
+        isPhoneValid
+            ? // await axios.post('http://194.67.121.62:8005/v1/auto/order', {
+            await axios.post('https://api.ilanavto.ru/v1/auto/order', {
+                model: application.model,
+                mark: application.marka,
+                kmTo: forSendApplication(application.mileage),
+                priceFrom: forSendApplication(application.budgetFrom),
+                priceTo: forSendApplication(application.budgetUpTo),
+                yearFrom: forSendApplication(application.yearFrom),
+                yearTo: forSendApplication(application.yearUpTo),
+                fullName: application.name,
+                phone: application.phone,
+                telegram: application.telegram,
+                whatsapp: application.whatsapp,
             })
-            .catch(function (error) {
-                console.log(error);
-                setErrorCheck(error.response.data.data.message.slice(0, -1))
-            });
+                .then(function (response) {
+                    console.log(response);
+                    setErrorCheck('')
+                    setApplication({
+                        ...application,
+                        marka: '',
+                        model: '',
+                        mileage: '',
+                        budgetFrom: '',
+                        budgetUpTo: '',
+                        yearFrom: '',
+                        yearUpTo: '',
+                        name: '',
+                        phone: '',
+                        whatsapp: false,
+                        telegram: false,
+                    })
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    setErrorCheck(error.response.data.data.message.slice(0, -1))
+                })
+            : setErrorCheck('Некорректный номер телефона')
+
     }
 
     const forSendApplication = (element) => {
@@ -137,12 +147,19 @@ const OrderCar = () => {
                     value={application.name}
                     onChange={e => setApplication({ ...application, name: e.target.value })}
                     type='text'
-                    placeholder='Иванов Иван Иванович'
+                    placeholder='Имя'
                 />
                 <OrderCarInput
                     value={application.phone}
-                    onChange={e => setApplication({ ...application, phone: e.target.value })}
-                    type='text'
+                    onChange={e => {
+                        const phoneValue = e.target.value;
+                        const phoneRegex = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+
+                        setPhoneValid(phoneRegex.test(phoneValue));
+                        setApplication({ ...application, phone: phoneValue });
+                    }}
+                    type='tel'
+                    pattern='^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$'
                     placeholder='+7 (999) 999-99-99'
                 />
                 <div className={styles.formMessendger}>

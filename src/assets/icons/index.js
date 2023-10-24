@@ -26,6 +26,8 @@ import { ReactComponent as SpeedIcon } from "./speed_icon.svg";
 import { ReactComponent as PowerIcon } from "./power_icon.svg";
 import { ReactComponent as VolumeIcon } from "./volume_icon.svg";
 import { ReactComponent as AccelerationIcon } from "./acceleration_icon.svg";
+import { ReactComponent as CurrentTimeIcon } from "./current_time_icon.svg";
+import { ReactComponent as Viber } from "./viber.svg";
 // import { ReactComponent as AuctionRight } from "./auctionRight.svg";
 
 export {
@@ -57,5 +59,7 @@ export {
     PowerIcon,
     VolumeIcon,
     AccelerationIcon,
+    CurrentTimeIcon,
+    Viber,
     // AuctionRight,
 };
